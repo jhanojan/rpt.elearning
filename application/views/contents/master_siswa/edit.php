@@ -33,35 +33,39 @@ if(isset($list)){
 				<?php echo form_hidden('formid',isset($_GET['formid']) ? $_GET['formid'] : '')?>
 			
 		   <fieldset class="col-md-6">
-                       
-                   <div class="form-group">
+			<div class="row">
+            <div class="form-group">
 			   
-			   <?php $nm_f="tanggal_daftar";?>
+			   <?php $nm_f="no_sisda";?>
 			   <div class="col-sm-3">
-				   <label for="<?php echo $nm_f?>">Tanggal Daftar</label>
+				   <label for="<?php echo $nm_f?>">No. Sisda</label>
 				   </div><div class="col-sm-9">
-				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : date('Y-m-d')) ?>" class="col-sm-2 date-picker">
+				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : "") ?>" class="col-sm-6 date-picker">
 			   </div>
 		   </div>
-		   <div class="form-group">
+		   </div>
+		   <div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="nama_siswa";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Nama Siswa</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-12 validate[required]">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="nama_panggilan";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Nama Panggilan</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-8">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="jenis_kelamin";?>
 			   <div class="col-sm-3">
@@ -69,18 +73,21 @@ if(isset($list)){
 				   </div><div class="col-sm-9">
                                        <input type="radio" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="L" class=""> <label>Laki Laki</label>&nbsp;&nbsp;
                                        <input type="radio" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="P" class=""> <label>Perempuan</label>
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="tempat_lahir";?>
 			   <div class="col-sm-3">
-				   <label for="<?php echo $nm_f?>">Tempat Lahir</label>
+				   <label for="<?php echo $nm_f?>">Tempat Tanggal Lahir</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-12">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<!--
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="tanggal_lahir";?>
 			   <div class="col-sm-3">
@@ -92,81 +99,90 @@ if(isset($list)){
 					<i class="fa fa-calendar bigger-110"></i>
                                        </span>
                                    </div>
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="agama";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Agama</label>
 				   </div><div class="col-sm-9">
 				   <?php echo form_dropdown($nm_f, GetOptAgama(),(isset($val[$nm_f]) ? $val[$nm_f] : ''),"class='select2'");?>
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="suku";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Suku</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-12">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="kewarganegaraan";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Kewarganegaraan</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-12">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="tinggi_badan";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Tinggi Badan</label>
 				   </div><div class="col-sm-9">
 				   <input type="number" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-3">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="berat_badan";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Berat Badan</label>
 				   </div><div class="col-sm-9">
 				   <input type="number" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-3">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="golongan_darah";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Golongan Darah</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-2">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="asal_sekolah";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Sekolah Asal</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-5">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="stat_sekolah_asal";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Status Sekolah Asal</label>
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-2">
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="periode";?>
 			   <div class="col-sm-3">
@@ -174,18 +190,20 @@ if(isset($list)){
 				   </div><div class="col-sm-9">
 				   
 				   <?php echo form_dropdown($nm_f,$opt_ta,(isset($val[$nm_f]) ? $val[$nm_f] : ambilta()),"class='select2'")?>
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="jenjang";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Jenjang</label>
 				   </div><div class="col-sm-9">
 				    <?php echo form_dropdown($nm_f,$opt_jenjang,(isset($val[$nm_f]) ? $val[$nm_f] : ''),"class='select2' onchange='changejenjang(this.value)'")?>
-			   </div>
-		   </div>
-		   <div class="form-group">
+			   </div></div>
+</div>
+<div class="row">
+    <div class="form-group">
 			   
 			   <?php $nm_f="biaya_masuk";?>
 			   <div class="col-sm-3">
@@ -194,9 +212,12 @@ if(isset($list)){
 				   
 			   </div>
 		   </div>
+</div>-->
                    </fieldset>
-           <fieldset class="col-md-6">
-                    <div class="form-group">
+
+           <!--<fieldset class="col-md-6">
+			   <div class="row">
+            <div class="form-group">
 			   
 			   <?php $nm_f="nama_ayah";?>
 			   <div class="col-sm-3">
@@ -204,6 +225,7 @@ if(isset($list)){
 				   </div><div class="col-sm-9">
 				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?>" class="col-sm-12">
 			   </div>
+		   </div>
 		   </div>
                     <div class="form-group">
 			   
@@ -353,7 +375,7 @@ if(isset($list)){
                                        <textarea name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>"><?php echo (isset($val[$nm_f]) ? $val[$nm_f] : '') ?></textarea>
 			   </div>
 		   </div>
-           </fieldset>
+           </fieldset>-->
            <div class="col-md-12">
              <div class="form-group">
                 <button type="submit" class="btn pull-right">Submit</button>

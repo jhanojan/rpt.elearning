@@ -42,7 +42,7 @@ class Master_siswa extends CI_Controller {
             $colModel['id'] = array('ID',100,TRUE,'left',2,TRUE);
             $colModel['no_sisda'] = array('No Sisda',110,TRUE,'left',2);
             $colModel['nama_siswa'] = array('Nama Siswa',200,TRUE,'left',2);
-            $colModel['tempat_lahir'] = array('Tempat Tanggal Lahir',100,TRUE,'left',2);
+            $colModel['tempat_lahir'] = array('Tempat Tanggal Lahir',200,TRUE,'left',2);
             $colModel['kelas'] = array('Kelas',90,TRUE,'left',2);
             return $colModel;
 	}
