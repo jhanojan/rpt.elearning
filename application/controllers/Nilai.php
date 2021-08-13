@@ -276,7 +276,7 @@ class Nilai extends CI_Controller {
         
                 
 	function upload_mpr($id=null){
-		izin();
+		
 		if($id!=NULL){
 			$filter=array('id'=>'where/'.$id);
 			$data['type']='Edit';
