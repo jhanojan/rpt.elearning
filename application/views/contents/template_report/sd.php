@@ -7,7 +7,7 @@ if(empty($nilai)){
 }else{?>
 <style>
     .table td{
-        border:1px solid black;
+        border:1px solid black!important;
     }    
     .ctr{
         text-align: center;
@@ -21,12 +21,12 @@ if(empty($nilai)){
         <td><?php echo $nilai['kehadiran']?></td>
     </tr>
     <tr>
-        <td><b>Tugas Harian Siswa</b></td>
+        <td><b>Laporan Harian Siswa</b></td>
         <td>:</td>
         <td><?php echo $nilai['lhs']?></td>
     </tr>
 </table>
-<table width="100%" class="table">
+<table width="100%" class="table" >
     <tr>
       <td width="40%" class="ctr">Aktivitas</td>
       <td width="10%" class="ctr">Tematik</td>

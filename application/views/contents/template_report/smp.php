@@ -6,7 +6,7 @@ if(empty($nilai)){
 }else{?>
 <style>
     .table td{
-        border:1px solid black;
+        border:1px solid black!important;
     }    
     .ctr{
         text-align: center;

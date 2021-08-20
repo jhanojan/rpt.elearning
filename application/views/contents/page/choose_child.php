@@ -34,7 +34,9 @@ if(!empty(webmastermarketing())){
         </div>
     	<div class="box-content">
             <div class="row">
-                <?php foreach($val as $an){
+                <?php
+                $hitung=1;
+                foreach($val as $an){
                      //$detailanak=$this->mdlfo->query("SELECT a.id,a.lastlogin,a.firstname,a.lastname,a.picture,b.contextid FROM mdl_user a LEFT JOIN mdl_files b ON b.id=a.picture WHERE a.id='".$an['child']."'")->row();
                     //$detailanak=$this->db->query("SELECT * FROM sv_master_siswa WHERE id='".$an['child']."'")->row();
                     $sisda=GetValue('no_sisda','sv_master_siswa',array('id'=>'where/'.$an['child']));
@@ -54,7 +56,14 @@ if(!empty(webmastermarketing())){
                         <h5><?php echo $detailanak->firstname.' - '.$detailanak->kelas.' ('.$detailanak->lastname.')'?></h5>
                     </div>
                 </div>
+                <?php if($hitung%3==0){?>
+                
+                    <div style="clear:both"></div>
                 <?php }?>
+                <?php
+                
+                $hitung++;
+                        }?>
             </div>
     	</div>
     	

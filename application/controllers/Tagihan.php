@@ -448,7 +448,12 @@ class Tagihan extends CI_Controller {
                     $input['periode']=$this->input->post('periode');
                     $input['created_by'] = webmasterid();
                     $input['created_on'] = date("Y-m-d H:i:s");
-                    $this->db->insert('sv_tagihan_siswa', $input);
+                    //$this->db->insert('sv_tagihan_siswa', $input);
+                    
+                    $insert_query = $this->db->insert_string('sv_tagihan_siswa', $input);
+                    $insert_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $insert_query);
+                    $this->db->query($insert_query);
+                    
                     //$start++;
                     }
                 }

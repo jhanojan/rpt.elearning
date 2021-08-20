@@ -140,8 +140,11 @@ class Admin extends CI_Controller {
 		if($id!=NULL){
 			$filter=array('id'=>'where/'.$id);
 			$data['type']='Edit';
-			//$data['list']=GetAll('sv_admin_profile',$filter);
-			$data['list']=GetAll('sv_master_orang_tua',$filter);
+                        if(webmastergrup()!=3){
+                            $data['list']=GetAll('sv_admin_profile',$filter);
+                        }else{
+                            $data['list']=GetAll('sv_master_orang_tua',$filter);
+                        }
 		}
 		else{
 			$data['type']='New';
@@ -157,7 +160,13 @@ class Admin extends CI_Controller {
 	function submit_profile(){
 		$webmaster_id=$this->session->userdata('webmaster_id');
 		$id = $this->input->post('id');
-		$GetColumns = GetColumns('sv_master_orang_tua');
+                        if(webmastergrup()!=3){
+                            $utama='sv_admin_profile';
+                        }else{
+                            $utama='sv_master_orang_tua';
+                        }
+                        
+		$GetColumns = GetColumns($utama);
 		foreach($GetColumns as $r)
 		{
 			$data[$r['Field']] = $this->input->post($r['Field']);
@@ -184,7 +193,7 @@ class Admin extends CI_Controller {
 			if($id != NULL && $id != ''){
 					$foto=GetValue('avatar','admin_profile',array('useradmin'=>'where/'.$id));
 					if($foto!='default.png'){
-						unlink('./assets/ace/avatars/'.GetValue('avatar','sv_master_orang_tua',array('id'=>'where/'.$id)));
+						unlink('./assets/ace/avatars/'.GetValue('avatar',$utama,array('id'=>'where/'.$id)));
 					}
 			}
 			
@@ -210,7 +219,7 @@ class Admin extends CI_Controller {
 			$data['modify_by'] = $webmaster_id;
 			$data['modify_on']=date("Y-m-d H:i:s");
 			$this->db->where("id", $id);
-			$this->db->update('sv_master_orang_tua', $data);
+			$this->db->update($utama, $data);
 			
 			$this->session->set_flashdata("message", 'Sukses diedit');
 		}
@@ -220,7 +229,7 @@ class Admin extends CI_Controller {
 			//if(!$this->input->post('avatar')){$data['avatar']='default.png';}
 			$data['created_by'] = $webmaster_id;
 			$data['created_on'] = date("Y-m-d H:i:s");
-			$this->db->insert('sv_master_orang_tua', $data);
+			$this->db->insert($utama, $data);
 			$id = $this->db->insert_id();
 			$this->session->set_flashdata("message", 'Sukses ditambahkan');
 		}

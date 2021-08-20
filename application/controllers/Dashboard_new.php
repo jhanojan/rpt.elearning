@@ -136,6 +136,14 @@ class Dashboard_new extends CI_Controller {
                 $this->load->view('contents/dashboard/export_pdf_detail',$data);  
             }
     }
+    function loadcourse($wb){
+        $data['webmasterkid']=$wb;
+                $this->load->view('contents/dashboard_new/course_overview',$data);  
+    }
+    function loadbadge($wb){
+        $data['webmasterkid']=$wb;
+                $this->load->view('contents/dashboard_new/course_badges',$data);  
+    }
 	
 }
 ?>

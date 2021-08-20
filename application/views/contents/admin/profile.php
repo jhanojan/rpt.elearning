@@ -2,6 +2,12 @@
 if(isset($list)){	
 	$val=$list->row_array();
 }
+
+                        if(webmastergrup()!=3){
+                            $utama='sv_admin_profile';
+                        }else{
+                            $utama='sv_master_orang_tua';
+                        }
 ?>
 
  <div>
@@ -87,7 +93,7 @@ if(isset($list)){
 			 <div class="col-md-6">
 				<fieldset class="col-md-12">
 				<legend>Avatar</legend>
-				<img src="<?php echo base_url('assets')?>/ace/avatars/<?php echo GetValue('avatar','master_orang_tua',array('id'=>'where/'.$this->session->userdata('webmaster_id')))?>" style="max-width:80%" />
+                                <img src="<?php echo base_url('assets')?>/ace/avatars/<?php echo GetValue('avatar',$utama,array('id'=>'where/'. webmastermarketing()))?>" style="max-width:80%" />
 					<br/>
 					<br/>
 					<br/>

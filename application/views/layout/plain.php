@@ -68,46 +68,7 @@
             <div class="navbar-item pull-left h5" ng-bind="$state.current.data.title" id="pageTitle"></div>
         
             <!-- navbar right -->
-            <ul class="nav navbar-nav pull-right">
-              <!--li class="nav-item dropdown pos-stc-xs">
-                <a class="nav-link" href data-toggle="dropdown">
-                  <i class="material-icons">&#xe7f5;</i>
-                  <span class="label label-sm up warn">3</span>
-                </a>
-                <div ui-include="'<?php echo base_url()?>assets/flatkit/views/blocks/dropdown.notification.html'"></div>
-              </li-->
-              <li class="nav-item dropdown">
-                <a class="nav-link clear" href data-toggle="dropdown">
-                  <span class="avatar w-32">
-                    <img src="<?php echo base_url()?>assets/flatkit/assets/images/a0.jpg" alt="...">
-                    <i class="on b-white bottom"></i>
-                  </span>
-                </a>
-                  <div class="dropdown-menu pull-right dropdown-menu-scale">
-                    <!--a class="dropdown-item" ui-sref="app.inbox.list">
-                        <span>Inbox</span>
-                        <span class="label warn m-l-xs">3</span>
-                    </a-->
-                    <a class="dropdown-item" href="<?php echo base_url()?>admin/profile/<?php echo webmastermarketing()?>">
-                        <span>Profile</span>
-                    </a>
-                    <a class="dropdown-item" href="<?php echo base_url()?>admin/form/<?php echo webmasterid()?>">
-                        <span>Settings</span>
-                        <i class="on b-white bottom"></i>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <!--a class="dropdown-item" ui-sref="app.docs">
-                        Need help?
-                    </a-->
-                    <a class="dropdown-item" href="<?php echo base_url()?>login/logout">Sign out</a>
-                  </div>
-              </li>
-              <li class="nav-item hidden-md-up">
-                <a class="nav-link" data-toggle="collapse" data-target="#collapse">
-                  <i class="material-icons">&#xe5d4;</i>
-                </a>
-              </li>
-            </ul>
+             <?php $this->load->view('layout/profiler')?>
             <!-- / navbar right -->
         
             <!-- navbar collapse -->
