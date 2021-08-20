@@ -1,7 +1,7 @@
 
 <?php 
 $sisda= GetValue('no_sisda','master_siswa',array('id'=>'where/'.webmasterkid()));
-$nilai=$this->db->query("SELECT * FROM sv_nilai_sd WHERE sisda='$sisda' ORDER BY id DESC LIMIT 1")->row_array();
+$nilai=$this->db->query("SELECT * FROM sv_nilai_sd WHERE sisda='$sisda' AND periode='".$periode."' ORDER BY id DESC LIMIT 1")->row_array();
 if(empty($nilai)){
     echo "Data Belum Tersedia";
 }else{?>

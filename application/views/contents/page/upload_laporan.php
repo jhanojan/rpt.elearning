@@ -4,11 +4,6 @@
 <div class="row">
     <div class="box col-md-12">
     <div class="box-inner">
-        <div class="box-header well" data-original-title="">
-            <h2>Upload Laporan MPR</h2>
-
-        
-        </div>
     	<div class="box-content">
             <div class="row">
                 <div class="col-lg-12 col-xs-12">

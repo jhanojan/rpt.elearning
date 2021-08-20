@@ -3,8 +3,11 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script src="<?php echo base_url()?>assets/flatkit/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="<?php echo base_url('assets')?>/ace/js/date-time/bootstrap-datepicker.js"></script>
+  <script src="<?php echo base_url('assets')?>/ace/js/date-time/bootstrap-timepicker.js"></script>
   <link rel="stylesheet" href="<?php echo base_url()?>assets/flatkit/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="<?php echo base_url()?>assets/flatkit/assets/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="<?php echo base_url('assets')?>/ace/css/datepicker.css" />
 
 <?php error_reporting(E_ALL ^ E_NOTICE);
 if(isset($list)){	
@@ -30,7 +33,18 @@ if(isset($list)){
 				
 				<?php echo form_hidden('redirect',isset($_GET['redirect']) ? $_GET['redirect'] : '')?>
 				<?php echo form_hidden('formid',isset($_GET['formid']) ? $_GET['formid'] : '')?>
-			
+                  <div class="row">
+                      
+		    <div class="form-group">
+			   
+			   <?php $nm_f="periode";?>
+			   <div class="col-sm-3">
+				   <label for="<?php echo $nm_f?>">Periode Laporan</label>
+				   </div><div class="col-sm-9">
+				   <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker form-control' id='$nm_f' required")?>
+			   </div>
+		   </div>
+                  </div>
 		   <div class="row">
 		    <div class="form-group">
 			   

@@ -39,7 +39,7 @@ if(isset($list)){
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Bulan Tagihan</label>
 				   </div><div class="col-sm-9">
-				   <?php echo form_input($nm_f,(isset($val['ta']) ? $val['ta'] : ''),"class='datepicker form-control' id='$nm_f' required")?>
+				   <?php echo form_input($nm_f,(isset($val['ta']) ? $val['ta'] : ''),"class='datepicker form-control' id='$nm_f' required readonly='readonly'")?>
 			   </div>
 		   </div>
                    </div>

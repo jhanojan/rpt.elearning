@@ -22,29 +22,20 @@
       <h2>Laporan Nilai MPR</h2>
     </div>
   </div>
-<?php if(!empty($nilai)){?>
-         <div class="box">
-    <a href="<?php echo base_url()?>mpr/pdf/<?php echo webmasterkid()?>/true" class="btn btn-info pull-right">Export PDF</a>
-         </div>
-<?php }?>
-         <div class="box">
-            <div class="col-md-12">
-         <?php
-         
-         $kelas=$detailanak->lastname;
-         if($kelas=='TKIT'){
-            $this->load->view('contents/template_report/tk');
-         }
-         elseif($kelas=='SDIT'){
-            $this->load->view('contents/template_report/sd');
-         }elseif($kelas=='SMPIT'){
-            $this->load->view('contents/template_report/smp');
-         }
-         
-         
-         ?>
-             </div> 
-         </div>
+<div class="row">
+    
+        <div class="input-group mb-3">
+    
+<?php $nm_f="periode";?>
+ <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker form-control' id='$nm_f' required readonly='readonly' placeholder='Periode Laporan' aria-label='Periode Laporan' aria-describedby='basic-addon2'")?>
+ 
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" onclick="searchoverview()" type="button">Search</button>
+  </div>
+</div>
+    <div id="overview">
+        
+    </div>
   <!--div class="box">
     <div class="box-header">
       <h2>Laporan Nilai Bulanan</h2>
@@ -82,4 +73,22 @@
         window.location.assign('<?php echo base_url()?>report_nilai_lainnya');
     }
     
+</script>
+<script>
+    $(document).ready(function(e){
+        
+    $(".datepicker").datepicker( {
+        format: "yyyy-mm",
+        startView: "months", 
+        minViewMode: "months",
+        autoclose:true
+    });
+    });
+    function searchoverview(){
+        var periode=$('#periode').val();
+        $('#overview').empty();
+        $('#overview').append('<img src="<?php echo base_url()?>assets/img/load.gif" style="max-width:50px;">');
+        $('#overview').load('<?php echo base_url()?>mpr/overview',{p:periode});
+    }
+
 </script>

@@ -36,7 +36,8 @@ class Model_nilai extends CI_Model{
 'pkh_stppa'=>$export['V'],
 'pkh_virtual'=>$export['W'],
 'total_virtual'=>$export['X'],
-                        'modify_on'=>date("Y-m-d H:i:s")
+                        'modify_on'=>date("Y-m-d H:i:s"),
+                        'periode'=>$this->input->post('periode')
                     );
                     $this->db->insert("sv_nilai_tk",$create);
                     }
@@ -74,7 +75,8 @@ class Model_nilai extends CI_Model{
                         'tik_ba'=>$export['U'],
                         'tik_formatif'=>$export['V'],
                         'tik_virtual'=>$export['W'],
-                        'modify_on'=>date("Y-m-d H:i:s")
+                        'modify_on'=>date("Y-m-d H:i:s"),
+                        'periode'=>$this->input->post('periode')
                     );
                     $this->db->insert("sv_nilai_sd",$create);
                     }
@@ -170,7 +172,8 @@ class Model_nilai extends CI_Model{
 'cibici_chat'=>$export['BX'],
 'cibici_virtual'=>$export['BY'],
  
-                        'modify_on'=>date("Y-m-d H:i:s")
+                        'modify_on'=>date("Y-m-d H:i:s"),
+                        'periode'=>$this->input->post('periode')
                     );
                     $this->db->insert("sv_nilai_smp",$create);
                     }

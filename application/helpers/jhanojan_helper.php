@@ -451,22 +451,6 @@ if (!function_exists('permissionFormUser')){
 }
 
 
-if (!function_exists('GetUserID')){
-	function GetUserID()
-	{
-		$CI =& get_instance();
-		return $CI->session->userdata("sendyuu_webmaster_id");
-	}
-}
-
-if (!function_exists('CekAdminKeuangan')){
-	function CekAdminKeuangan($val)
-	{
-		$admin_keuangan = GetValue("id_admin_wp","admin", array("id"=> "where/".$val));
-		return $admin_keuangan;
-	}
-}
-
 if (!function_exists('CekAksesKegiatan')){
 	function CekAksesKegiatan($tabel, $id)
 	{
