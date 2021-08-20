@@ -19,7 +19,7 @@
          
   <div class="box">
     <div class="box-header">
-      <h2>Laporan Nilai MPR</h2>
+      <h2>Laporan Hasil Belajar</h2>
     </div>
   </div>
 <div class="row">
@@ -27,10 +27,10 @@
         <div class="input-group mb-3">
     
 <?php $nm_f="periode";?>
- <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker form-control' id='$nm_f' required readonly='readonly' placeholder='Periode Laporan' aria-label='Periode Laporan' aria-describedby='basic-addon2'")?>
+ <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker col-md-9' id='$nm_f' required readonly='readonly' placeholder='Periode Laporan' aria-label='Periode Laporan' aria-describedby='basic-addon2'")?>
  
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" onclick="searchoverview()" type="button">Search</button>
+      <button class="btn btn-primary" onclick="searchoverview()" type="button"><i class="fa fa-search"></i>Search</button>
   </div>
 </div>
     <div id="overview">
