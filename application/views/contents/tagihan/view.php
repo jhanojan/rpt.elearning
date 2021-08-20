@@ -77,6 +77,9 @@ function btn(com,grid)
     if (com == 'upload tagihan' ) {
 		window.location = _base_url + controller + 'upload/';
     }
+    if (com == 'export to xls' ) {
+		window.location = _base_url + controller + 'export_xls/';
+    }
     if (com == 'upload status pembayaran' ) {
 		window.location = _base_url + controller + 'update/';
     }

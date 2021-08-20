@@ -152,8 +152,8 @@ class Tagihan extends CI_Controller {
             $buttons[] = array('separator');
             $buttons[] = array('upload status pembayaran','edit','btn');
             $buttons[] = array('ubah status pembayaran','edit','btn');
-            //$buttons[] = array('separator');
-            //$buttons[] = array('cetak tagihan','edit','btn');
+            $buttons[] = array('separator');
+            $buttons[] = array('export to xls','download','btn');
             //$buttons[] = array('separator');
              //$buttons[] = array('edit','edit','btn');
             //$buttons[] = array('delete','delete','btn');
@@ -619,4 +619,12 @@ class Tagihan extends CI_Controller {
 		redirect($this->utama);
 		
 	}
+        function export_xls(){
+                header("Content-type: application/vnd-ms-excel");
+		header("Content-Disposition: attachment; filename=Rekap-Tagihan-SPP".date('YmdHis').".xls");
+            $data=array();
+            
+            $this->load->view('contents/tagihan/rekap',$data);
+            
+        }
 }
