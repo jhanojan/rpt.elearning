@@ -125,12 +125,34 @@ if(isset($list)){
                   </div>
                   <div class="row">
                    <div class="form-group">
+			   <?php $nm_f="ket_pmb";?>
+			   <div class="col-sm-3">
+				   <label for="<?php echo $nm_f?>">Keterangan PMB</label>
+                           </div>
+                           <div class="col-sm-9">
+				<?php echo form_textarea($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '',"id='$nm_f' ")?>
+			   </div>
+		   </div>
+                  </div>
+                  <div class="row">
+                   <div class="form-group">
 			   <?php $nm_f="lainlain";?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Lain Lain</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
+			   </div>
+		   </div>
+                  </div>
+                  <div class="row">
+                   <div class="form-group">
+			   <?php $nm_f="ket_lainlain";?>
+			   <div class="col-sm-3">
+				   <label for="<?php echo $nm_f?>">Keterangan Lain-lain</label>
+                           </div>
+                           <div class="col-sm-9">
+				<?php echo form_textarea($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '',"id='$nm_f' ")?>
 			   </div>
 		   </div>
                   </div>
