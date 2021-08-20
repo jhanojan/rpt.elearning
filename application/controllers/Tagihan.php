@@ -76,7 +76,8 @@ class Tagihan extends CI_Controller {
                 }
                 //echo webmastermarketing();die();
                 if($anaks==''){
-                $child=$this->db->query("SELECT child,sisda FROM sv_parent_child WHERE parent='".webmastermarketing()."'")->result();
+                $child=$this->db->query("SELECT a.child,b.no_sisda as sisda FROM sv_parent_child a LEFT JOIN sv_master_siswa b ON a.child=b.id WHERE parent='".webmastermarketing()."'")->result();
+                //lastq();
                 $ss=array();
                 foreach($child as $anak){
                     $ss[]="'".$anak->sisda."'";
