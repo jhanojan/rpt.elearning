@@ -169,7 +169,7 @@ class Tagihan extends CI_Controller {
             if($siswa!='--') $this->db->where("sv_a.sisda LIKE '%$siswa%'");
             if($periode!='--') $this->db->where("sv_a.periode = '$periode'");
             
-            $this->db->select("sv_a.*,b.nama_siswa nama_,b.kelas kelas_,FORMAT(total_diskon_,2,'de_DE') as total_diskon_")->from('sv_tagihan_siswa sv_a');
+            $this->db->select("sv_a.*,b.nama_siswa nama_,b.kelas kelas_,FORMAT(total_diskon,2,'de_DE') as total_diskon_")->from('sv_tagihan_siswa sv_a');
             $this->db->join('sv_master_siswa b', "sv_a.sisda=b.no_sisda", 'left');
             $this->db->order_by('b.nama_siswa', "asc");
             
