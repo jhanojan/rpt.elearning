@@ -124,7 +124,7 @@ class Tagihan extends CI_Controller {
             $colModel['nama_'] = array('Nama Siswa',300,TRUE,'left',2);
             $colModel['kelas_'] = array('Kelas',150,TRUE,'left',2);
             $colModel['periode'] = array('Periode',150,TRUE,'left',2);
-            $colModel['total_diskon'] = array('Total',150,TRUE,'left',2);
+            $colModel['total_diskon_'] = array('Total',150,TRUE,'left',2);
             $colModel['status_bayar'] = array('Status',150,TRUE,'left',2);
 			return $colModel;
 	}
@@ -169,7 +169,7 @@ class Tagihan extends CI_Controller {
             if($siswa!='--') $this->db->where("sv_a.sisda LIKE '%$siswa%'");
             if($periode!='--') $this->db->where("sv_a.periode = '$periode'");
             
-            $this->db->select("sv_a.*,b.nama_siswa nama_,b.kelas kelas_")->from('sv_tagihan_siswa sv_a');
+            $this->db->select("sv_a.*,b.nama_siswa nama_,b.kelas kelas_,FORMAT(total_diskon_,2,'de_DE') as total_diskon_")->from('sv_tagihan_siswa sv_a');
             $this->db->join('sv_master_siswa b', "sv_a.sisda=b.no_sisda", 'left');
             $this->db->order_by('b.nama_siswa', "asc");
             

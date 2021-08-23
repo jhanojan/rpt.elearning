@@ -24,14 +24,14 @@ $tagihan=$this->db->query("SELECT * FROM sv_tagihan_siswa")->result_array()?>
       <td><?php echo $tg['periode']?></td>
       <td><?php echo $tg['sisda']?></td>
       <td><?php echo GetValue('nama_siswa','sv_master_siswa',array('no_sisda'=>'where/'.$tg['sisda']))?></td>
-      <td><?php echo $tg['spp']?></td>
-      <td><?php echo $tg['ks']?></td>
-      <td><?php echo $tg['catering']?></td>
-      <td><?php echo $tg['antar_jemput']?></td>
-      <td><?php echo $tg['pmb']?></td>
-      <td><?php echo $tg['lainlain']?></td>
-      <td><?php echo $tg['total_non_diskon']?></td>
-      <td><?php echo $tg['total_diskon']?></td>
+      <td><?php echo number_format($tg['spp'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['ks'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['catering'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['antar_jemput'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['pmb'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['lainlain'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['total_non_diskon'], 0, ',', '.');?></td>
+      <td><?php echo number_format($tg['total_diskon'], 0, ',', '.');?></td>
       <td><?php echo $tg['status_bayar']?></td>
     </tr>
     <?php $no++; }?>
