@@ -75,7 +75,7 @@
     
     <tr>
         <th width="75%" align="center" colspan="2">Diskon SPP</th>
-        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?></th>
+        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?>%</th>
     </tr>
     <tr>
         <th width="75%" align="center" colspan="2">Jumlah Diskon</th>
