@@ -10,10 +10,21 @@
                  
                 <div class="row"> 
                     <div class="form-group">
-			   <div class="col-sm-3 col-md-3">&nbsp; 
+			   <div class="col-sm-2 col-md-2">No. Sisda 
                            </div>
                            <div class="col-sm-6 col-md-2">
-                                <?php echo form_input('sisda',get('sisda'),'class="form-control" id="searchb" placeholder="-SISDA-" ')?>&nbsp; &nbsp; &nbsp;
+                                <?php echo form_input('sisda',get('sisda'),'class="form-control" id="searchb" placeholder="-SISDA-" ')?>
+                           </div>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="form-group">
+			   <div class="col-sm-2 col-md-2">
+				   <label for="<?php echo $nm_f?>">Nama Siswa</label>
+                           </div>
+                           <div class="col-sm-6 col-md-2">
+                                <?php echo form_input('nama',get('nama'),'class="form-control" id="searchb" placeholder="-Nama Siswa-" ')?>
                            </div>
                     </div>
                 </div>
