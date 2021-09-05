@@ -34,6 +34,8 @@ class Tagihan extends CI_Controller {
                 $val=(!get('val')?'':get('val'));
                 $periode=(!get('periode')?'--':get('periode'));
                 $siswa=(!get('sisda')?'--':get('sisda'));
+                $nama=(!get('nama')?'--':get('nama'));
+                $status_bayar=(!get('status_bayar')?'--':get('status_bayar'));
                 if($col==''){
                     //$data['contents']=array();
                 }else{
@@ -49,7 +51,7 @@ class Tagihan extends CI_Controller {
                 
 		$data['content'] = 'contents/'.$this->utama.'/view';
 		
-		$data['js_grid']=$this->get_column($siswa,$periode);
+		$data['js_grid']=$this->get_column($siswa,$periode,$nama,$status_bayar);
 		//$data['list']=GetAll($this->utama);
 		
 		$this->load->view('layout/main',$data);
@@ -129,7 +131,7 @@ class Tagihan extends CI_Controller {
 			return $colModel;
 	}
         
-	function get_column($siswa,$periode){
+	function get_column($siswa,$periode,$nama,$status_bayar){
 	
             $colModel=$this->listcol(); 
         
@@ -159,15 +161,17 @@ class Tagihan extends CI_Controller {
             //$buttons[] = array('delete','delete','btn');
             //$buttons[] = array('separator');
 		
-            return $grid_js = build_grid_js('flex1',site_url($this->utama."/get_record/$siswa/$periode"),$colModel,'sv_a.id','asc',$gridParams,$buttons);
+            return $grid_js = build_grid_js('flex1',site_url($this->utama."/get_record/$siswa/$periode/$nama/$status_bayar"),$colModel,'sv_a.id','asc',$gridParams,$buttons);
 	}
 	
-	function get_flexigrid($siswa,$periode)
+	function get_flexigrid($siswa,$periode,$nama,$status_bayar)
         {
 
             //Build contents query
             if($siswa!='--') $this->db->where("sv_a.sisda LIKE '%$siswa%'");
             if($periode!='--') $this->db->where("sv_a.periode = '$periode'");
+            if($nama!='--') $this->db->where("sv_a.nama LIKE '%".rawurldecode($nama)."%'");
+            if($status_bayar!='--') $this->db->where("sv_a.status_bayar = '".rawurldecode($status_bayar)."'");
             
             $this->db->select("sv_a.*,b.nama_siswa nama_,b.kelas kelas_,FORMAT(total_diskon,0,'de_DE') as total_diskon_")->from('sv_tagihan_siswa sv_a');
             $this->db->join('sv_master_siswa b', "sv_a.sisda=b.no_sisda", 'left');
@@ -182,6 +186,8 @@ class Tagihan extends CI_Controller {
             //$this->db->select("count(id) as record_count")->from('sv_bill');
             if($siswa!='--') $this->db->where("sv_a.sisda LIKE '%$siswa%'");
             if($periode!='--') $this->db->where("sv_a.periode = '$periode'");
+            if($nama!='--') $this->db->where("sv_a.nama = '$nama'");
+            if($status_bayar!='--') $this->db->where("sv_a.status_bayar = '$status_bayar'");
             $this->db->select("count(sv_a.id) as record_count")->from('sv_tagihan_siswa sv_a');
             
             $this->flexigrid->build_query(FALSE);
@@ -208,13 +214,13 @@ class Tagihan extends CI_Controller {
 		echo "OK";
             //redirect($this->utama."?col=".$_GET['col']."&val=".$_GET['val']."&periode=".$_GET['periode']."&search=".$_GET['search']);
         }
-	function get_record($siswa,$periode){
+	function get_record($siswa,$periode,$nama,$status_bayar){
 		
             $colModel=$this->listcol(); 
 		$valid_fields = array('id','code','name');
 
             $this->flexigrid->validate_post('sv_a.id','DESC',$valid_fields);
-            $records = $this->get_flexigrid($siswa,$periode);
+            $records = $this->get_flexigrid($siswa,$periode,$nama,$status_bayar);
 
             $this->output->set_header($this->config->item('json_header'));
 

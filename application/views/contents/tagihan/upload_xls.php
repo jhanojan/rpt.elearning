@@ -47,12 +47,10 @@ if(isset($list)){
 		   <div class="form-group">
 			  
 			   <div class="col-sm-3">
-				   <label for="<?php echo $nm_f?>">File</label>
-				   </div><div class="col-sm-9">
-                                       <div class="form-file">
-                                        <input type="file" name="filez">
-                                        <button class="btn white">Select file ...</button>
-                                        </div>
+				<label for="<?php echo $nm_f?>">File</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="file" name="filez">
 			   </div>
             
 		   </div>

@@ -13,7 +13,16 @@
 			   <div class="col-sm-3 col-md-3">&nbsp; 
                            </div>
                            <div class="col-sm-6 col-md-2">
-                                <?php echo form_input('sisda',get('sisda'),'class="form-control" id="searchb" placeholder="-SISDA-" ')?>&nbsp; &nbsp; &nbsp;
+                                <?php echo form_input('sisda',get('sisda'),'class="form-control" id="searchb" placeholder="-No. SISDA-" ')?>
+                           </div>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div class="form-group">
+			   <div class="col-sm-3 col-md-3">&nbsp; 
+                           </div>
+                           <div class="col-sm-6 col-md-2">
+                                <?php echo form_input('nama',get('nama'),'class="form-control" id="searchb" placeholder="-Nama Siswa-" ')?>&nbsp; &nbsp; &nbsp;
                            </div>
                     </div>
                 </div>
@@ -25,6 +34,18 @@
 				   </div><div class="col-sm-2">
 				   <?php echo form_input($nm_f,(get('periode') ? get('periode') : ''),"class='datepicker form-control' id='$nm_f' autocomplete='off'")?>
 			   </div>
+		   </div>
+                
+                <div class="row"> 
+			   
+                    <div class="form-group">
+			   <?php $nm_f="status_bayar";?>
+			   <div class="col-sm-3">
+				   <label for="<?php echo $nm_f?>">Status Tagihan</label>
+				   </div><div class="col-sm-2">
+				   <?php echo form_dropdown($nm_f,array(''=>'-Status-','Belum Dibayar'=>'Belum Bayar','Sudah Dibayar'=>'Lunas'),(get('status_bayar') ? get('status_bayar') : ''),"class='form-control' id='$nm_f' autocomplete='off'")?>
+			   </div>
+                    </div>
 		   </div>
                 </div>
             
