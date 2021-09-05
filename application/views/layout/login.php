@@ -33,8 +33,12 @@
                                 <div class="form-group">
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                     <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                                    
                                 </div>
+                                <div class="form-group">
+                                    <input type="checkbox" onclick="showpass()" style="display:inline!important">Show Password
                                 
+                                </div>
                                 <div class="form-group form-button">
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                                 </div>
@@ -50,4 +54,14 @@
         <script src="<?php echo base_url()?>assets/login/vendor/jquery/jquery.min.js"></script>
         <script src="<?php echo base_url()?>assets/login/js/main.js"></script>
 </body>
+<script>
+    function showpass() {
+  var x = document.getElementById("your_pass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
     </html>

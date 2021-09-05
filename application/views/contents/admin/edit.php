@@ -48,7 +48,13 @@ if(isset($list)){
             <?php $nm_f="password";?>
                         <label for="<?php echo $nm_f?>"><?php echo ucfirst($nm_f)?></label>
                         <input type="password" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="" class="form-control">
-			</div>
+		</div>
+                
+                                <div class="form-group">
+                                    <input type="checkbox" onclick="showpass()" style="display:inline!important">Show Password
+                                
+                                </div>
+                                
 				<?php
 					if($this->session->userdata('webmaster_id')!=$val['id']){?>
     		<div class="form-group">
@@ -90,3 +96,14 @@ if(isset($list)){
     </div>
     </div>
 </div>
+    
+<script>
+    function showpass() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
