@@ -11,6 +11,15 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/login/css/style.css">
+    <!--icon -->
+    
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="<?php echo base_url()?>assets/img/rpt-logo-tp.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="<?php echo base_url()?>assets/img/rpt-logo-tp.png">
 </head>
 <body>
 
@@ -20,7 +29,7 @@
                 <div class="container">
                     <div class="signin-content">
                         <div class="signin-image">
-                            <figure><img src="<?php echo base_url()?>assets/login/images/signin-image.jpg" alt="sing up image"></figure>
+                            <figure><img src="<?php echo base_url()?>assets/img/rpt-logo-tp.png" alt="sing up image"></figure>
                         </div>
     
                         <div class="signin-form">
