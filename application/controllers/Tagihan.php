@@ -186,7 +186,7 @@ class Tagihan extends CI_Controller {
             //$this->db->select("count(id) as record_count")->from('sv_bill');
             if($siswa!='--') $this->db->where("sv_a.sisda LIKE '%$siswa%'");
             if($periode!='--') $this->db->where("sv_a.periode = '$periode'");
-            if($nama!='--') $this->db->where("sv_a.nama = '$nama'");
+            if($nama!='--') $this->db->where("sv_a.nama LIKE '%".rawurldecode($nama)."%'");
             if($status_bayar!='--') $this->db->where("sv_a.status_bayar = '$status_bayar'");
             $this->db->select("count(sv_a.id) as record_count")->from('sv_tagihan_siswa sv_a');
             
@@ -247,6 +247,10 @@ class Tagihan extends CI_Controller {
                                         }
 					elseif($key=='username'){
                                         $record_items[$a][$b]=GetValue('username','sv_admin',array('marketing'=>'where/'.$row->id));
+                                        
+                                        }
+					elseif($key=='status_bayar'){
+                                        $record_items[$a][$b]=($row->status_bayar=='Sudah Dibayar' ? 'Lunas':$row->status_bayar);
                                         
                                         }
 					elseif($key!='idnya' && $key!='id' && $key!='username'){
@@ -399,6 +403,7 @@ class Tagihan extends CI_Controller {
                     $input['antar_jemput']=str_replace('.','',str_replace(',','',$export['O']));
                     $input['pmb']=str_replace('.','',str_replace(',','',$export['P']));
                     $input['lainlain']=str_replace('.','',str_replace(',','',$export['Q']));
+                    $input['ket_lainlain']=str_replace('.','',str_replace(',','',$export['R']));
                     $input['total_diskon']=str_replace('.','',str_replace(',','',$export['T']));
                     $input['total_non_diskon']=str_replace('.','',str_replace(',','',$export['S']));
                     

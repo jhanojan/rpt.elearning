@@ -42,7 +42,7 @@ class Dashboard_new extends CI_Controller {
                 $data['accesscourse']=$this->mdlfo->query("SELECT a.timeaccess,b.fullname name_course FROM mdl_user_lastaccess a LEFT JOIN mdl_course b ON b.id=a.courseid WHERE a.userid='".$mid->id."'")->result();
 		$data['content'] = 'contents/'.$this->utama.'/view';
                 $period=date('Y-m');
-                $data['tagihan']=$this->db->query("SELECT * FROM sv_tagihan_siswa WHERE (sisda='".$sisda."' or va_bsm='".$data['detailanak']->idnumber."' or va_mandiri='".$data['detailanak']->idnumber."') and periode='$period'")->row_array();
+                $data['tagihan']=$this->db->query("SELECT * FROM sv_tagihan_siswa WHERE (sisda='".$sisda."' or va_bsm='".$data['detailanak']->idnumber."' or va_mandiri='".$data['detailanak']->idnumber."') ORDER BY id DESC limit 1")->row_array();
 		//End Global
 		
 		//Attendance

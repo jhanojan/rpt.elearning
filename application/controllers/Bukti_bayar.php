@@ -36,6 +36,7 @@ class Bukti_bayar extends CI_Controller {
                 $val=(!get('val')?'':get('val'));
                 $periode=(!get('periode')?'':get('periode'));
                 $siswa=(!get('sisda')?'--':get('sisda'));
+                $nama=(!get('nama')?'--':get('nama'));                
                 if($col==''){
                     //$data['contents']=array();
                 }else{
@@ -51,7 +52,7 @@ class Bukti_bayar extends CI_Controller {
                 
 		$data['content'] = 'contents/'.$this->utama.'/view';
 		
-		$data['js_grid']=$this->get_column($siswa);
+		$data['js_grid']=$this->get_column($siswa,$nama);
 		//$data['list']=GetAll($this->utama);
 		
 		$this->load->view('layout/main',$data);
@@ -124,7 +125,7 @@ class Bukti_bayar extends CI_Controller {
             redirect($this->utama);
             
         }
-	function get_column($siswa){
+	function get_column($siswa,$nama){
 	
             $colModel=$this->listcol(); 
         
@@ -147,10 +148,10 @@ class Bukti_bayar extends CI_Controller {
             //$buttons[] = array('delete','delete','btn');
             //$buttons[] = array('separator');
 		
-            return $grid_js = build_grid_js('flex1',site_url($this->utama."/get_record/$siswa"),$colModel,'sv_a.id','desc',$gridParams,$buttons);
+            return $grid_js = build_grid_js('flex1',site_url($this->utama."/get_record/$siswa/$nama"),$colModel,'sv_a.id','desc',$gridParams,$buttons);
 	}
 	
-	function get_flexigrid($siswa)
+	function get_flexigrid($siswa,$nama)
         {
 
             //Build contents query
@@ -160,9 +161,8 @@ class Bukti_bayar extends CI_Controller {
             //$this->db->join('sv_master_kelas d', "c.kelas = d.id", 'left');
             //$this->db->join('sv_master_tahun_ajaran e', "sv_a.ta = e.id", 'left');
             //$this->db->order_by('c.kelas', "asc");
-            if($siswa!='--'){
-                $this->db->where("b.no_sisda LIKE '%$siswa%'");
-            }
+            if($siswa!='--') $this->db->where("b.no_sisda LIKE '%$siswa%'");
+            if($nama!='--') $this->db->where("b.nama_siswa LIKE '%".rawurldecode($nama)."%'");
             $this->db->order_by('sv_a.id', "desc");
             
             $this->flexigrid->build_query();
@@ -178,9 +178,9 @@ class Bukti_bayar extends CI_Controller {
             //$this->db->join('sv_master_kelas d', "c.kelas = d.id", 'left');
             //$this->db->join('sv_master_tahun_ajaran e', "sv_a.ta = e.id", 'left');
             //$this->db->order_by('c.kelas', "asc");
-            if($siswa!='--'){
-                $this->db->where("b.no_sisda LIKE '%$siswa%'");
-            }
+            if($siswa!='--') $this->db->where("b.no_sisda LIKE '%$siswa%'");
+            
+            if($nama!='--') $this->db->where("b.nama_siswa LIKE '%".rawurldecode($nama)."%'");
             $this->db->order_by('sv_a.id', "desc");
             
             $this->flexigrid->build_query(FALSE);
@@ -194,13 +194,13 @@ class Bukti_bayar extends CI_Controller {
             return $return;
         }
 	
-	function get_record($siswa){
+	function get_record($siswa,$nama){
 		
             $colModel=$this->listcol(); 
 		$valid_fields = array('id','siswa');
 
             $this->flexigrid->validate_post('sv_a.id','DESC',$valid_fields);
-            $records = $this->get_flexigrid($siswa);
+            $records = $this->get_flexigrid($siswa,$nama);
 
             $this->output->set_header($this->config->item('json_header'));
 

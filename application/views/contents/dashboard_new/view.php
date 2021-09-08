@@ -74,7 +74,7 @@ if($detailanak->picture>0){
         <?php if(empty($tagihan)){?>
         Belum Tersedia
         <?php }else{?>
-        <?php echo Rupiah($tagihan['total_diskon']) . ' - '. $tagihan['status_bayar']." - <a class='btn btn-danger' href='".base_url()."keuangan/cetak_tagihan/".$tagihan['id']."'>Detail</a>"?>
+        <?php echo Rupiah($tagihan['total_diskon']) . ' - '. ($tagihan['status_bayar']=='Sudah Dibayar' ? 'Lunas':$tagihan['status_bayar'])." - <a class='btn btn-danger' href='".base_url()."keuangan/cetak_tagihan/".$tagihan['id']."'>Detail</a>"?>
         <?php }?>
 	 <hr>
          
