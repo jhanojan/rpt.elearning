@@ -388,7 +388,6 @@ class Tagihan extends CI_Controller {
                 //print_mz($allDataInSheet);
                 //$start=4;
                 foreach($allDataInSheet as $export){
-                    
                     if(!empty($export['B'])){
                     $input['sisda']=$export['B'];
                     $input['va_bsm']=$export['C'];
@@ -402,7 +401,7 @@ class Tagihan extends CI_Controller {
                     $input['catering']=str_replace('.','',str_replace(',','',$export['N']));
                     $input['antar_jemput']=str_replace('.','',str_replace(',','',$export['O']));
                     $input['pmb']=str_replace('.','',str_replace(',','',$export['P']));
-                    $input['lainlain']=str_replace('.','',str_replace(',','',$export['Q']));
+                    $input['lainlain']=str_replace(')','',str_replace('(','-',str_replace('.','',str_replace(',','',$export['Q']))));
                     $input['ket_lainlain']=str_replace('.','',str_replace(',','',$export['R']));
                     $input['total_diskon']=str_replace('.','',str_replace(',','',$export['T']));
                     $input['total_non_diskon']=str_replace('.','',str_replace(',','',$export['S']));

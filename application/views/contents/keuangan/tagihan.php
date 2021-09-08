@@ -72,6 +72,14 @@
         <td width="70%" align="left">Lain-lain</td>
         <td width="25%" align="right"><?php echo Rupiah($datapay['lainlain'])?></td>
     </tr>
+    <tr>
+        <th width="75%" align="center" colspan="2">Keterangan PMB</th>
+        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?>%</th>
+    </tr>
+    <tr>
+        <th width="75%" align="center" colspan="2">Keterangan Lain-Lain</th>
+        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?>%</th>
+    </tr>
     
     <tr>
         <th width="75%" align="center" colspan="2">Diskon SPP</th>
@@ -84,6 +92,14 @@
     <tr>
         <th width="75%" align="center" colspan="2">Jumlah Harus Dibayar</th>
         <th width="25%" align="right"><?php echo Rupiah($datapay['total_diskon']) ?></th>
+    </tr>
+    <tr>
+        <td width="75%" align="left" colspan="2">Keterangan PMB</td>
+        <td width="25%" align="right"><?php echo $datapay['ket_pmb'] ?></td>
+    </tr>
+    <tr>
+        <td width="75%" align="left" colspan="2">Keterangan Lain-Lain</td>
+        <td width="25%" align="right"><?php echo $datapay['ket_lainlain'] ?></td>
     </tr>
 </table>
     <span><?php echo $datapay['status_bayar'] ?> </span> <?php if($datapay['status_bayar']=='Sudah Dibayar'){ ?><span>, Dikonfirmasi Pada : <?php echo tglindo($datapay['modify_on']) ?></span><?php }?>

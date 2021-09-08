@@ -163,7 +163,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Diskon SPP Dalam Persen</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?> %
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?> %
 			   </div>
 		   </div>
                   </div>
@@ -174,7 +174,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Jumlah Diskon SPP</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' readonly='readonly'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
@@ -185,7 +185,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Total Diskon</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' readonly='readonly'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
@@ -196,7 +196,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Total Non Diskon</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' readonly='readonly'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
