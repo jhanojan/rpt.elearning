@@ -38,7 +38,7 @@ class Admin extends CI_Controller {
 	function form($id=null){
 		
 		
-		permissionFormUser($id);
+		//permissionFormUser($id);
 		if($id!=NULL){
 			$filter=array('id'=>'where/'.$id);
 			$data['type']='Edit';
@@ -136,7 +136,7 @@ class Admin extends CI_Controller {
 	}
 	function profile($id=null){
 		
-		permissionz();
+		//permissionz();
 		if($id!=NULL){
 			$filter=array('id'=>'where/'.$id);
 			$data['type']='Edit';
