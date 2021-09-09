@@ -590,6 +590,7 @@ class Tagihan extends CI_Controller {
 		$webmaster_id=$this->session->userdata('webmaster_id');
 		$id = $this->input->post('id');
 		$GetColumns = GetColumns('sv_'.$this->utama.'_siswa');
+                
 		foreach($GetColumns as $r)
 		{
 			$data[$r['Field']] = $this->input->post($r['Field']);
@@ -598,7 +599,16 @@ class Tagihan extends CI_Controller {
 			if(!$data[$r['Field']] && !$data[$r['Field']."_temp"]) unset($data[$r['Field']]);
 			unset($data[$r['Field']."_temp"]);
 		}	
-		
+		!empty($data['spp']) ? $data['spp']=uangtostr($data['spp']) : 0;
+		!empty($data['ks']) ? $data['ks']=uangtostr($data['ks']) : 0;
+		!empty($data['catering']) ? $data['catering']=uangtostr($data['catering']) : 0;
+		!empty($data['antar_jemput']) ? $data['antar_jemput']=uangtostr($data['antar_jemput']) : 0;
+		!empty($data['pmb']) ? $data['pmb']=uangtostr($data['pmb']) : 0;
+		!empty($data['lainlain']) ? $data['lainlain']=uangtostr($data['lainlain']) : 0;
+		!empty($data['diskon_persen']) ? $data['diskon_persen']=uangtostr($data['diskon_persen']) : 0;
+		!empty($data['diskon_val']) ? $data['diskon_val']=uangtostr($data['diskon_val']) : 0;
+		!empty($data['total_diskon']) ? $data['total_diskon']=uangtostr($data['total_diskon']) : 0;
+		!empty($data['total_non_diskon']) ? $data['total_non_diskon']=uangtostr($data['total_non_diskon']) : 0;
 		/* if(!$this->input->post('global')){$data['global']='N';}
 		else{$data['global']='Y';}  */
 		

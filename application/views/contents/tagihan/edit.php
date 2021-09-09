@@ -75,7 +75,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">SPP</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -86,7 +86,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">KS</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -97,7 +97,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Catering</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -108,7 +108,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Antar Jemput</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -119,7 +119,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">PMB</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' clas='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -141,7 +141,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Lain Lain</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?>
 			   </div>
 		   </div>
                   </div>
@@ -163,7 +163,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Diskon SPP Dalam Persen</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?> %
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit' oninput='hitungsemua()'")?> %
 			   </div>
 		   </div>
                   </div>
@@ -174,7 +174,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Jumlah Diskon SPP</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
@@ -185,7 +185,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Total Diskon</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
@@ -196,7 +196,7 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">Total Non Diskon</label>
                            </div>
                            <div class="col-sm-9">
-				<?php echo form_input($nm_f,isset($val[$nm_f]) ? $val[$nm_f] : '0',"id='$nm_f' class='duit'")?>
+				<?php echo form_input($nm_f,isset($val[$nm_f]) ? Number($val[$nm_f]) : '0',"id='$nm_f' class='duit'")?>
 			   </div>
 		   </div>
                   </div>
@@ -210,7 +210,6 @@ if(isset($list)){
     </div>
 </div>
 <script>
-	//$('.duit').mask('9.99');
 	//$('#comission').mask('9.99');
 $(document).ready(function(e){
     $(".datepicker").datepicker( {
@@ -219,6 +218,13 @@ $(document).ready(function(e){
         minViewMode: "months",
         autoclose:true
     });
+	$('.duit').maskMoney({
+            thousands:'.',
+            decimal:',',
+            allowZero:true,
+            precision:0,
+            allowNegative:true
+        });
     
     
 });

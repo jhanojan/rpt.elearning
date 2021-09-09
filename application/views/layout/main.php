@@ -112,6 +112,7 @@
   </div>
 <!-- build:js <?php echo base_url()?>assets/flatkit/scripts/app.html.js -->
 <!-- Bootstrap -->
+  <script src="<?php echo base_url()?>assets/maskmoney/jquery.maskMoney.min.js"></script>
   <script src="<?php echo base_url()?>assets/flatkit/libs/jquery/tether/dist/js/tether.min.js"></script>
   <script src="<?php echo base_url()?>assets/flatkit/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <!-- core -->
