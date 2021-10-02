@@ -24,6 +24,7 @@ class Admin extends CI_Controller {
 	
 	function main()
 	{
+		if(diasales())redirect('dashboard_new');
 		//Migrasi 1 Feb 14
 		//Set Global
 		//$data = GetHeaderFooter();
@@ -32,7 +33,6 @@ class Admin extends CI_Controller {
 		//End Global
 		
 		//Attendance
-		
 		$this->load->view('layout/main',$data);
 	}
 	function form($id=null){
