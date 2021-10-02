@@ -34,6 +34,7 @@ if(empty($nilai)){
       <td width="10%" class="ctr">PJOK</td>
       <td width="10%" class="ctr">Al-Qur'an</td>
       <td width="10%" class="ctr">TIK</td>
+      <td width="10%" class="ctr">English</td>
     </tr>
     <tr>
       <td>Akses Bahan Ajar</td>
@@ -42,14 +43,16 @@ if(empty($nilai)){
       <td><?php echo $nilai['pjok_ba']?></td>
       <td><?php echo $nilai['quran_ba']?></td>
       <td><?php echo $nilai['tik_ba']?></td>
+      <td><?php echo $nilai['english_ba']?></td>
     </tr>
     <tr>
       <td>Penugasan Awal</td>
       <td><?php echo $nilai['tematik_tugas']?></td>
       <td><?php echo $nilai['pai_tugas']?></td>
-      <td><?php echo $nilai['pjok_tugas']?></td>
+      <td>-</td>
       <td><?php echo $nilai['quran_tugas']?></td>
-      <td><?php echo $nilai['tik_tugas']?></td>
+      <td>-</td>
+      <td><?php echo $nilai['english_tugas']?></td>
     </tr>
     <tr>
       <td>Penilaian Formatif</td>
@@ -58,6 +61,7 @@ if(empty($nilai)){
       <td><?php echo $nilai['pjok_formatif']?></td>
       <td><?php echo $nilai['quran_formatif']?></td>
       <td><?php echo $nilai['tik_formatif']?></td>
+      <td><?php echo $nilai['english_formatif']?></td>
     </tr>
     <tr>
       <td>Penilaian Aktifitas<br> 
@@ -67,6 +71,7 @@ Tatap Muka Virtual</td>
       <td><?php echo $nilai['pjok_virtual']?></td>
       <td><?php echo $nilai['quran_virtual']?></td>
       <td><?php echo $nilai['tik_virtual']?></td>
+      <td><?php echo $nilai['english_virtual']?></td>
     </tr>
 </table>
 <?php }?>

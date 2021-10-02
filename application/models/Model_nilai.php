@@ -75,6 +75,10 @@ class Model_nilai extends CI_Model{
                         'tik_ba'=>$export['U'],
                         'tik_formatif'=>$export['V'],
                         'tik_virtual'=>$export['W'],
+                        'english_ba'=>$export['X'],
+                        'english_tugas'=>$export['Y'],
+                        'english_formatif'=>$export['Z'],
+                        'english_virtual'=>$export['AA'],
                         'modify_on'=>date("Y-m-d H:i:s"),
                         'periode'=>$this->input->post('periode')
                     );

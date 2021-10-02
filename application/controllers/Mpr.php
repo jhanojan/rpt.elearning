@@ -60,8 +60,8 @@ class MPR extends CI_Controller {
                 }elseif($kelas=='SMPIT'){
                     $data['nilai']=$this->db->query("SELECT id FROM sv_nilai_smp WHERE sisda='$sisda' AND periode='$periode' ORDER BY id DESC LIMIT 1")->num_rows();
                 }
-                $pr=explode('-',$periode);
-                $data['textperiode']= GetBulanIndo($pr[1]).' '.$pr[0];
+                $pr=GetAll('sv_ref_periode',array('id'=>'where/'.$periode))->row_array();
+                $data['textperiode']= $pr['ta'].' - '.$pr['title'];
                 $data['periode']=$periode;
                 $this->load->view('contents/'.$this->utama.'/overview',$data);
         }

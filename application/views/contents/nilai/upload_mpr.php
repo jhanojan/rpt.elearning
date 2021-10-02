@@ -37,11 +37,13 @@ if(isset($list)){
                       
 		    <div class="form-group">
 			   
-			   <?php $nm_f="periode";?>
+			   <?php $nm_f="periode";
+                                 $opt_periode=GetOptAll('sv_ref_periode','-Periode-',array('status'=>'where/1'),'ta','id','title');?>
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Periode Laporan</label>
 				   </div><div class="col-sm-9">
-				   <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker form-control' id='$nm_f' required")?>
+				   <?php echo form_dropdown($nm_f,$opt_periode,(isset($val['periode']) ? $val['periode'] : ''),"class='col-md-9 col-sm-12 form-control' id='$nm_f' required ");
+         ?>
 			   </div>
 		   </div>
                   </div>

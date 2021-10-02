@@ -6,7 +6,7 @@
 <?php }?>
 <div class="row">
     <div class="col-md-12">
-        <h5>Laporan MPR periode <?php echo $textperiode?></h5>
+        <h5>Laporan Hasil Belajar <?php echo $textperiode?></h5>
     </div>
 </div>
          <div class="box">

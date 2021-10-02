@@ -1240,7 +1240,7 @@ if (!function_exists('GetOptAll')){
                     if(isset($r['part_number']) && $field=='part_number'){
                         if($r['part_number']!=NULL){
                         if(isset($r['status'])){
-                        if($r['status']=='Aktif' || $r['status']=='unfinished'){
+                        if($r['status']=='Aktif' || $r['status']=='unfinished' || $r['status']=='1'){
 				if($field2!=NULL){$fl=$r[$field]. ' - '.$r[$field2];}
 				else{ $fl = $r[$field];}
                                 $opt[$r[$id]] = $fl;
@@ -1255,7 +1255,7 @@ if (!function_exists('GetOptAll')){
                                 }
                     }else{
                         if(isset($r['status'])){
-                        if($r['status']=='Aktif' || $r['status']=='unfinished'){
+                        if($r['status']=='Aktif' || $r['status']=='unfinished' || $r['status']=='1'){
 				if($field2!=NULL){$fl=$r[$field]. ' - '.$r[$field2];}
 				else{ $fl = $r[$field];}
                                 $opt[$r[$id]] = $fl;

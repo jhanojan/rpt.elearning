@@ -25,13 +25,19 @@
 <div class="row">
     
         <div class="input-group mb-3">
-    
-<?php $nm_f="periode";?>
- <?php echo form_input($nm_f,(isset($val['periode']) ? $val['periode'] : ''),"class='datepicker col-md-9' id='$nm_f' required readonly='readonly' placeholder='Periode Laporan' aria-label='Periode Laporan' aria-describedby='basic-addon2'")?>
- 
+    <div class="col-md-9 col-sm-12">
+<?php $nm_f="periode";
+        $opt_periode=GetOptAll('sv_ref_periode','-Periode-',array('status'=>'where/1'),'ta','id','title');
+?>
+ <?php echo form_dropdown($nm_f,$opt_periode,(isset($val['periode']) ? $val['periode'] : ''),"class='col-md-9 col-sm-12 form-control' id='$nm_f' required ");
+         //lastq();
+         ?>
+    </div>
+    <div class="col-md-3 col-sm-12">
   <div class="input-group-append">
       <button class="btn btn-primary" onclick="searchoverview()" type="button"><i class="fa fa-search"></i>Search</button>
   </div>
+    </div>
 </div>
     <div id="overview">
         
