@@ -54,12 +54,16 @@ class MPR extends CI_Controller {
                 $kelas=$data['detailanak']->lastname;
                 if($kelas=='TKIT'){
                     $data['nilai']=$this->db->query("SELECT id FROM sv_nilai_tk WHERE sisda='$sisda' AND periode='$periode' ORDER BY id DESC LIMIT 1")->num_rows();
+                    $data['table']='tk';
                 }
-                elseif($kelas=='SDIT'){
+                elseif($kelas=='SDIT' || strpos($kelas,'1')!==false || strpos($kelas,'2')!==false || strpos($kelas,'3')!==false || strpos($kelas,'4')!==false || strpos($kelas,'5')!==false || strpos($kelas,'6')!==false){
                     $data['nilai']=$this->db->query("SELECT id FROM sv_nilai_sd WHERE sisda='$sisda' AND periode='$periode' ORDER BY id DESC LIMIT 1")->num_rows();
-                }elseif($kelas=='SMPIT'){
+                    $data['table']='sd';
+                }elseif($kelas=='SMPIT' || strpos($kelas,'7')!==false || strpos($kelas,'8')!==false || strpos($kelas,'9')!==false){
                     $data['nilai']=$this->db->query("SELECT id FROM sv_nilai_smp WHERE sisda='$sisda' AND periode='$periode' ORDER BY id DESC LIMIT 1")->num_rows();
+                    $data['table']='smp';
                 }
+                //print_mz($data);
                 $pr=GetAll('sv_ref_periode',array('id'=>'where/'.$periode))->row_array();
                 $data['textperiode']= $pr['ta'].' - '.$pr['title'];
                 $data['periode']=$periode;
@@ -80,7 +84,7 @@ class MPR extends CI_Controller {
                 $sisda=GetValue('no_sisda','sv_master_siswa',array('id'=>'where/'. webmasterkid()));
                 $mid=$this->mdlfo->query("SELECT id FROM mdl_user WHERE idnumber='".$sisda."'")->row();
                 
-                $data['detailanak']=$this->mdlfo->query("SELECT a.city,a.lastlogin,a.country,a.id,a.firstname,a.lastname,a.picture,b.contextid FROM mdl_user a LEFT JOIN mdl_files b ON b.id=a.picture WHERE a.id='".$mid->id."'")->row();
+                $data['detailanak']=$this->mdlfo->query("SELECT a.city,a.lastlogin,a.country,a.id,a.firstname,a.lastname,a.picture,b.contextid,a.idnumber FROM mdl_user a LEFT JOIN mdl_files b ON b.id=a.picture WHERE a.id='".$mid->id."'")->row();
                 $data['enrol']=$this->mdlfo->query("SELECT a.*,b.courseid courseid,c.fullname course FROM mdl_user_enrolments a LEFT JOIN mdl_enrol b ON b.id=a.enrolid LEFT JOIN mdl_course c ON b.courseid=c.id WHERE a.userid='".$mid->id."' AND c.id='$courseid'")->row();
                 $data['rownilai']=$this->mdlfo->query("SELECT * FROM mdl_grade_grades a left join mdl_grade_items b ON a.itemid=b.id WHERE a.userid=".$mid->id." AND b.courseid=".$courseid." AND sortorder!=1 ORDER BY sortorder ASC")->result();
                 $data['rowsum']=$this->mdlfo->query("SELECT * FROM mdl_grade_grades a left join mdl_grade_items b ON a.itemid=b.id WHERE a.userid=".$mid->id." AND b.courseid=".$courseid." AND sortorder=1")->row();
@@ -89,13 +93,15 @@ class MPR extends CI_Controller {
          if(strpos($kelas,'TKIT') !== false){
             $data['tbl']='contents/template_report/tk';
          }
-         elseif(strpos($kelas,'SDIT') !== false){
+         elseif($kelas=='SDIT' || strpos($kelas,'1')!==false || strpos($kelas,'2')!==false || strpos($kelas,'3')!==false || strpos($kelas,'4')!==false || strpos($kelas,'5')!==false || strpos($kelas,'6')!==false){
             $data['tbl']='contents/template_report/sd';
-         }elseif(strpos($kelas,'SMPIT') !== false){
+         }elseif($kelas=='SMPIT' || strpos($kelas,'7')!==false || strpos($kelas,'8')!==false || strpos($kelas,'9')!==false){
             $data['tbl']='contents/template_report/smp';
          }
          //$tbl='contents/report_nilai/export_pdf_detail';
                 
+                $pr=GetAll('sv_ref_periode',array('id'=>'where/'.$periode))->row_array();
+                $data['textperiode']= $pr['ta'].' - '.$pr['title'];
         $html = $this->load->view('contents/'.$this->utama.'/export_pdf_detail',$data,TRUE);
         // create pdf using dompdf
         $filename = "laporan_nilai";
@@ -112,7 +118,7 @@ class MPR extends CI_Controller {
             if($render=='true'){
                 pdf_create($html, $filename, $paper, $orientation);}
             else{
-                $this->load->view('contents/dashboard/export_pdf_detail',$data);  
+                $this->load->view('contents/'.$this->utama.'/export_pdf_detail',$data);  
             }
     }
 	

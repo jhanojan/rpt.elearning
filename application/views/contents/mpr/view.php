@@ -92,9 +92,11 @@
     });
     function searchoverview(){
         var periode=$('#periode').val();
+        if(periode){
         $('#overview').empty();
         $('#overview').append('<img src="<?php echo base_url()?>assets/img/load.gif" style="max-width:50px;">');
         $('#overview').load('<?php echo base_url()?>mpr/overview',{p:periode});
+        }
     }
 
 </script>

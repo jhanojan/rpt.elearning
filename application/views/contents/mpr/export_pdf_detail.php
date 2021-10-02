@@ -1,7 +1,9 @@
+
+            <img src="<?php echo base_url()?>assets/img/mpr-header.png" style="width:100%">
 <table width="100%">
     <tr>
         <td align="center">
-            LAPORAN PERKEMBANGAN BELAJAR SISWA																
+            <h2>LAPORAN PERKEMBANGAN BELAJAR SISWA</h2>																
         </td>
     </tr>
 </table>
@@ -9,22 +11,52 @@
     <tr>
         <td><b>Nama</b></td>
         <td>:</td>
-        <td><?php echo $detailanak->lastname?></td>
+        <td><?php echo $detailanak->firstname?></td>
+    </tr>
+    <tr>
+        <td><b>No. SISDA</b></td>
+        <td>:</td>
+        <td><?php echo $detailanak->idnumber?></td>
     </tr>
     <tr>
         <td><b>Kelas</b></td>
         <td>:</td>
-        <td><?php echo $detailanak->firstname?></td>
+        <td><?php echo $detailanak->lastname?></td>
     </tr>
     <tr>
-        <td><b>Bulan</b></td>
+        <td><b>Periode</b></td>
         <td>:</td>
-        <td><?php echo date('M - Y')?></td>
+        <td><?php echo $textperiode?></td>
     </tr>
 </table>
 <br/>
 <?php $this->load->view($tbl);?>
 
+<table width='200px;'>
+    <tr>
+        <td colspan='2'>Keterangan</td>
+    </tr>
+    <tr>
+        
+        <td class='disables' >&nbsp;</td>
+        <td>Tidak ada penilaian</td>
+    </tr>
+    <tr>
+        
+        <td class="ctr">A</td>
+        <td>Sangat Aktif</td>
+    </tr>
+    <tr>
+        
+        <td class="ctr">B</td>
+        <td>Aktif</td>
+    </tr>
+    <tr>
+        
+        <td class="ctr">C</td>
+        <td>Cukup Aktif</td>
+    </tr>
+</table>
 <table width="100%">
     <tr>
         <td colspan="2" align="right">
@@ -36,21 +68,22 @@
             Kepala Sekolah
         </td>
         <td width="50%" align="right">
-            Wali Kelas
+            
         </td>
     </tr>
     <tr>
-        <td width="50%" align="left">&nbsp;
+        <td width="50%" align="left">
+            <img src="<?php echo base_url()?>assets/img/kepsek-sign.png" style="width:200px">
         </td>
         <td width="50%" align="right">&nbsp;
         </td>
     </tr>
     <tr>
         <td width="50%" align="left">
-            __________
+            <u>Mas’ud, M.Pd.I.</u>
         </td>
         <td width="50%" align="right">
-            __________
+            
         </td>
     </tr>
     

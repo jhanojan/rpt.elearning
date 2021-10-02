@@ -13,15 +13,7 @@
             <div class="col-md-12">
          <?php
          if(!empty($nilai)){
-         $kelas=$detailanak->lastname;
-         if($kelas=='TKIT'){
-            $this->load->view('contents/template_report/tk');
-         }
-         elseif($kelas=='SDIT'){
-            $this->load->view('contents/template_report/sd');
-         }elseif($kelas=='SMPIT'){
-            $this->load->view('contents/template_report/smp');
-         }
+                $this->load->view('contents/template_report/'.$table);
          }else{
              echo "Data Belum Tersedia";
          }
