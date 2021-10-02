@@ -131,7 +131,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata("message", 'Sukses ditambahkan');
 		}
 		
-		redirect($this->utama);
+		redirect($this->utama.'/form/'.$id);
 		
 	}
 	function profile($id=null){
