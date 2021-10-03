@@ -70,13 +70,19 @@ if(isset($list)){
 				   <label for="<?php echo $nm_f?>">File</label>
 				   </div><div class="col-sm-9">
                                        <div class="form-file">
-                                        <input type="file" name="filez">
+                                        <input type="file" name="filez"  onchange="loadFile(event)">
                                         <button class="btn white">Select file ...</button>
                                         </div>
 			   </div>
             
 		   </div>
                    </div>
+           <div class='row'>
+            <div class="col-md-3"> Preview File : </div>
+            <div class="col-md-6">
+                <img id="output" style="max-width:100%"/>
+            </div>
+           </div>
            
     		<div class="form-group">
             <button type="submit" class="btn pull-right">Submit</button>
@@ -88,6 +94,14 @@ if(isset($list)){
     </div>
 </div>
 <script>
+    
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
     $(document).ready(function(e){
         
     $(".datepicker").datepicker( {
@@ -96,6 +110,8 @@ if(isset($list)){
         minViewMode: "months",
         autoclose:true
     });
+    
+  
     })
 
 </script>
