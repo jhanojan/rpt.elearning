@@ -1,5 +1,5 @@
 
-            <img src="<?php echo base_url()?>assets/img/mpr-header.png" style="width:100%">
+<img src="<?php echo base_url()?>assets/img/<?php echo $header_img?>" style="width:100%">
 <table width="100%">
     <tr>
         <td align="center">
@@ -88,4 +88,4 @@
     </tr>
     
 </table>
-            <img src="<?php echo base_url()?>assets/img/footer_rpt.png" style="width:100%">
+            <img src="<?php echo base_url()?>assets/img/<?php echo $footer_img?>" style="width:100%">

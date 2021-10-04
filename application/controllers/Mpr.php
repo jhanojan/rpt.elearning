@@ -92,11 +92,18 @@ class MPR extends CI_Controller {
          $kelas=$data['detailanak']->lastname;
          if(strpos($kelas,'TKIT') !== false){
             $data['tbl']='contents/template_report/tk';
+            $data['header_img']='mpr-header-tk.png';            
+            $data['footer_img']='footer-tk.png';
+
          }
          elseif($kelas=='SDIT' || strpos($kelas,'1')!==false || strpos($kelas,'2')!==false || strpos($kelas,'3')!==false || strpos($kelas,'4')!==false || strpos($kelas,'5')!==false || strpos($kelas,'6')!==false){
             $data['tbl']='contents/template_report/sd';
+            $data['header_img']='mpr-header.png';            
+            $data['footer_img']='footer-sd.png';
          }elseif($kelas=='SMPIT' || strpos($kelas,'7')!==false || strpos($kelas,'8')!==false || strpos($kelas,'9')!==false){
             $data['tbl']='contents/template_report/smp';
+            $data['header_img']='mpr-header-smp.png';            
+            $data['footer_img']='footer_rpt.png';
          }
          //$tbl='contents/report_nilai/export_pdf_detail';
                 
