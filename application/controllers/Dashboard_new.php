@@ -75,6 +75,7 @@ class Dashboard_new extends CI_Controller {
                             $coursecomplete=$this->mgetdata->getmodulescoursecompleted($course,$webmasterkid)->num_rows();
                             $coursetotal= $this->mgetdata->getmodulescourse($course,1)->num_rows();
                             $data['precentaget']=floor($coursecomplete/$coursetotal*100);
+                            if($data['precentaget']>100)$data['precentaget']=100;
 //                echo $coursecomplete;
 //                echo "<br>";
 //                echo $coursetotal;

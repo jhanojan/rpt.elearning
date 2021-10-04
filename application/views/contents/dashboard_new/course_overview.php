@@ -10,6 +10,7 @@
                             $coursecomplete=$this->mgetdata->getmodulescoursecompleted($cd['id'],$webmasterkid)->num_rows();
                             $coursetotal= $this->mgetdata->getmodulescourse($cd['id'],1)->num_rows();
                             $precentaget=floor($coursecomplete/$coursetotal*100);
+                            if($precentaget>100)$precentaget=100;
                             //echo $webmasterkid;
                              ?>
                     <div class="card" style="width: 100%;">
