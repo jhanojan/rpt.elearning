@@ -19,126 +19,97 @@ if(empty($nilai)){
         <td><?php echo $nilai['lhs']?></td>
     </tr>
 </table>
-<table width="200" border="1">
+<table width="100%" border="1" cellspacing='0'>
     <tr>
-      <td class="ctr">I. Aktivitas Luring (Asinkronus)</td>
+        <td>Mata Pelajaran</td>
+        <td>Presensi</td>
+        <td>Bahan Ajar</td>
+        <td>Nilai Pengetahuan</td>
+        <td>Nilai Keterampilan</td>
+    </tr>
+    <tr>
       <td class="ctr">PAI</td>
+      <td class="ctr"><?php echo $nilai['pai_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['pai_ba']?></td>
+      <td class="ctr"><?php echo $nilai['pai_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['pai_keterampilan']?></td>
+    </tr>
+    <tr>
       <td class="ctr">PPKn</td>
-      <td class="ctr">B. Indonesia</td>
+      <td class="ctr"><?php echo $nilai['pkn_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['pkn_ba']?></td>
+      <td class="ctr"><?php echo $nilai['pkn_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['pkn_keterampilan']?></td>
+    </tr>
+    <tr>
+      <td class="ctr">Bahasa Indonesia</td>
+      <td class="ctr"><?php echo $nilai['bi_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['bi_ba']?></td>
+      <td class="ctr"><?php echo $nilai['bi_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['bi_keterampilan']?></td>
+    </tr>
+    <tr>
       <td class="ctr">Matematika</td>
+      <td class="ctr"><?php echo $nilai['mtk_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['mtk_ba']?></td>
+      <td class="ctr"><?php echo $nilai['mtk_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['mtk_keterampilan']?></td>
+    </tr>
+    <tr>
       <td class="ctr">IPA</td>
+      <td class="ctr"><?php echo $nilai['ipa_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['ipa_ba']?></td>
+      <td class="ctr"><?php echo $nilai['ipa_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['ipa_keterampilan']?></td>
+    </tr>
+    <tr>
       <td class="ctr">IPS</td>
-      <td class="ctr">B. Inggris</td>
-      <td class="ctr">SBdP</td>
+      <td class="ctr"><?php echo $nilai['ips_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['ips_ba']?></td>
+      <td class="ctr"><?php echo $nilai['ips_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['ips_keterampilan']?></td>
+    </tr>
+    <tr>
+      <td class="ctr">Bahasa Inggris</td>
+      <td class="ctr"><?php echo $nilai['en_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['en_ba']?></td>
+      <td class="ctr"><?php echo $nilai['en_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['en_keterampilan']?></td>
+    </tr>
+    <tr>
       <td class="ctr">PJOK</td>
-      <td class="ctr">Al Qur’an</td>
-      <td class="ctr">TIK</td>
-      <td class="ctr">CiBiCi</td>
+      <td class="ctr"><?php echo $nilai['pjok_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['pjok_ba']?></td>
+      <td class="ctr"><?php echo $nilai['pjok_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['pjok_keterampilan']?></td>
     </tr>
     <tr>
-      <td>Akses Bahan Ajar</td>
-      <td><?php echo $nilai['pai_ba']?></td>
-      <td><?php echo $nilai['pkn_ba']?></td>
-      <td><?php echo $nilai['bi_ba']?></td>
-      <td><?php echo $nilai['mtk_ba']?></td>
-      <td><?php echo $nilai['ipa_ba']?></td>
-      <td><?php echo $nilai['ips_ba']?></td>
-      <td><?php echo $nilai['en_ba']?></td>
-      <td><?php echo $nilai['sbdp_ba']?></td>
-      <td><?php echo $nilai['pjok_ba']?></td>
-      <td><?php echo $nilai['quran_ba']?></td>
-      <td><?php echo $nilai['tik_ba']?></td>
-      <td><?php echo $nilai['cibici_ba']?></td>
+      <td class="ctr">SB</td>
+      <td class="ctr"><?php echo $nilai['sb_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['sb_ba']?></td>
+      <td class="ctr"><?php echo $nilai['sb_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['sb_keterampilan']?></td>
     </tr>
     <tr>
-      <td>Penugasan Awal</td>
-      <td><?php echo $nilai['pai_tugas']?></td>
-      <td><?php echo $nilai['pkn_tugas']?></td>
-      <td><?php echo $nilai['bi_tugas']?></td>
-      <td><?php echo $nilai['mtk_tugas']?></td>
-      <td><?php echo $nilai['ipa_tugas']?></td>
-      <td><?php echo $nilai['ips_tugas']?></td>
-      <td><?php echo $nilai['en_tugas']?></td>
-      <td><?php echo $nilai['sbdp_tugas']?></td>
-      <td><?php echo $nilai['pjok_tugas']?></td>
-      <td><?php echo $nilai['quran_tugas']?></td>
-      <td><?php echo $nilai['tik_tugas']?></td>
-      <td><?php echo $nilai['cibici_tugas']?></td>
+      <td class="ctr">Informatika</td>
+      <td class="ctr"><?php echo $nilai['tik_presensi']?></td>
+      <td class="ctr"><?php echo $nilai['tik_ba']?></td>
+      <td class="ctr"><?php echo $nilai['tik_pengetahuan']?></td>
+      <td class="ctr"><?php echo $nilai['tik_keterampilan']?></td>
+    </tr>
+</table>
+<br/>
+<table width="100%" border="1" cellspacing='0'>
+    <tr>
+        <td class="ctr" rowspan="2">BBQ</td>
+        <td class="ctr">Presensi</td>
+        <td class="ctr">Jilid</td>
+        <td class="ctr">Nilai</td>
     </tr>
     <tr>
-      <td>Forum E-learning</td>
-      <td><?php echo $nilai['pai_forum']?></td>
-      <td><?php echo $nilai['pkn_forum']?></td>
-      <td><?php echo $nilai['bi_forum']?></td>
-      <td><?php echo $nilai['mtk_forum']?></td>
-      <td><?php echo $nilai['ipa_forum']?></td>
-      <td><?php echo $nilai['ips_forum']?></td>
-      <td><?php echo $nilai['en_forum']?></td>
-      <td><?php echo $nilai['sbdp_forum']?></td>
-      <td><?php echo $nilai['pjok_forum']?></td>
-      <td><?php echo $nilai['quran_forum']?></td>
-      <td><?php echo $nilai['tik_forum']?></td>
-      <td><?php echo $nilai['cibici_forum']?></td>
-    </tr>
-    <tr>
-      <td>Penilaian Formatif</td>
-      <td><?php echo $nilai['pai_formatif']?></td>
-      <td><?php echo $nilai['pkn_formatif']?></td>
-      <td><?php echo $nilai['bi_formatif']?></td>
-      <td><?php echo $nilai['mtk_formatif']?></td>
-      <td><?php echo $nilai['ipa_formatif']?></td>
-      <td><?php echo $nilai['ips_formatif']?></td>
-      <td><?php echo $nilai['en_formatif']?></td>
-      <td><?php echo $nilai['sbdp_formatif']?></td>
-      <td><?php echo $nilai['pjok_formatif']?></td>
-      <td><?php echo $nilai['quran_formatif']?></td>
-      <td><?php echo $nilai['tik_formatif']?></td>
-      <td><?php echo $nilai['cibici_formatif']?></td>
-    </tr>
-    <tr>
-      <td class="ctr">II. Aktivitas Daring (Sinkronus)</td>
-      <td class="ctr">PAI</td>
-      <td class="ctr">PPKn</td>
-      <td class="ctr">B. Indonesia</td>
-      <td class="ctr">Matematika</td>
-      <td class="ctr">IPA</td>
-      <td class="ctr">IPS</td>
-      <td class="ctr">B. Inggris</td>
-      <td class="ctr">SBdP</td>
-      <td class="ctr">PJOK</td>
-      <td class="ctr">Al Qur’an</td>
-      <td class="ctr">TIK</td>
-      <td class="ctr">CiBiCi</td>
-    </tr>
-    <tr>
-      <td>Chat E-learning</td>
-      <td><?php echo $nilai['pai_chat']?></td>
-      <td><?php echo $nilai['pkn_chat']?></td>
-      <td><?php echo $nilai['bi_chat']?></td>
-      <td><?php echo $nilai['mtk_chat']?></td>
-      <td><?php echo $nilai['ipa_chat']?></td>
-      <td><?php echo $nilai['ips_chat']?></td>
-      <td><?php echo $nilai['en_chat']?></td>
-      <td><?php echo $nilai['sbdp_chat']?></td>
-      <td><?php echo $nilai['pjok_chat']?></td>
-      <td><?php echo $nilai['quran_chat']?></td>
-      <td><?php echo $nilai['tik_chat']?></td>
-      <td><?php echo $nilai['cibici_chat']?></td>
-    </tr>
-    <tr>
-      <td>Presensi Tatap Muka Virtual</td>
-      <td><?php echo $nilai['pai_virtual']?></td>
-      <td><?php echo $nilai['pkn_virtual']?></td>
-      <td><?php echo $nilai['bi_virtual']?></td>
-      <td><?php echo $nilai['mtk_virtual']?></td>
-      <td><?php echo $nilai['ipa_virtual']?></td>
-      <td><?php echo $nilai['ips_virtual']?></td>
-      <td><?php echo $nilai['en_virtual']?></td>
-      <td><?php echo $nilai['sbdp_virtual']?></td>
-      <td><?php echo $nilai['pjok_virtual']?></td>
-      <td><?php echo $nilai['quran_virtual']?></td>
-      <td><?php echo $nilai['tik_virtual']?></td>
-      <td><?php echo $nilai['cibici_virtual']?></td>
+        <td class="ctr"><?php echo $nilai['bbq_presensi']?></td>
+        <td class="ctr"><?php echo $nilai['bbq_jilid']?></td>
+        <td class="ctr"><?php echo $nilai['bbq_nilai']?></td>
     </tr>
 </table>
 <?php }?>

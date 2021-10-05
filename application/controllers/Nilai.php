@@ -442,9 +442,10 @@ class Nilai extends CI_Controller {
                 
             echo "<script>"
             . "window.alert('Berhasil Di Upload');"
-                    . "window.location.href='".base_url().$this->utama."/upload_mpr_tk';"
+                    . "window.location.href='".base_url().$this->utama."/upload_mpr';"
             
             . "</script>";
+               // redirect($this->utama.'/upload_mpr_tk');
             }         
     }
 }

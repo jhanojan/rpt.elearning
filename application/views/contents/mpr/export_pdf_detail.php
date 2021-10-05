@@ -32,31 +32,6 @@
 <br/>
 <?php $this->load->view($tbl);?>
 
-<table width='200px;'>
-    <tr>
-        <td colspan='2'>Keterangan</td>
-    </tr>
-    <tr>
-        
-        <td class='disables' >&nbsp;</td>
-        <td>Tidak ada penilaian</td>
-    </tr>
-    <tr>
-        
-        <td class="ctr">A</td>
-        <td>Sangat Aktif</td>
-    </tr>
-    <tr>
-        
-        <td class="ctr">B</td>
-        <td>Aktif</td>
-    </tr>
-    <tr>
-        
-        <td class="ctr">C</td>
-        <td>Cukup Aktif</td>
-    </tr>
-</table>
 <table width="100%">
     <tr>
         <td colspan="2" align="right">

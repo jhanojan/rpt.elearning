@@ -63,6 +63,7 @@ class MPR extends CI_Controller {
                     $data['nilai']=$this->db->query("SELECT id FROM sv_nilai_smp WHERE sisda='$sisda' AND periode='$periode' ORDER BY id DESC LIMIT 1")->num_rows();
                     $data['table']='smp';
                 }
+                //lastq();
                 //print_mz($data);
                 $pr=GetAll('sv_ref_periode',array('id'=>'where/'.$periode))->row_array();
                 $data['textperiode']= $pr['ta'].' - '.$pr['title'];

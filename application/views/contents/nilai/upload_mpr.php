@@ -54,7 +54,7 @@ if(isset($list)){
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Tingkat</label>
 				   </div><div class="col-sm-9">
-				   <?php echo form_dropdown($nm_f,array('tk'=>'TK','sd'=>'SD','smp'=>'SMP'),(isset($val['ta']) ? $val['ta'] : ''),"class='datepicker' id='$nm_f' required")?>
+				   <?php echo form_dropdown($nm_f,array('tk'=>'TK','sd'=>'SD','smp'=>'SMP'),(isset($val['ta']) ? $val['ta'] : '')," id='$nm_f' required")?>
 			   </div>
 		   </div>
                    </div>
