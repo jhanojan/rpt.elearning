@@ -76,9 +76,9 @@ if(isset($list)){
 		   <div class="form-group">
 			  
 			   <div class="col-sm-12">
-                               <a href="<?php echo base_Url()?>assets/template/mpr/tk.xlsx" class="btn btn-primary">Download Template Rekap TK</a>&nbsp;
-                               <a href="<?php echo base_Url()?>assets/template/mpr/sd.xlsx" class="btn btn-primary">Download Template Rekap SD</a>&nbsp;
-                               <a href="<?php echo base_Url()?>assets/template/mpr/smp.xlsx" class="btn btn-primary">Download Template Rekap SMP</a>&nbsp;
+                               <a href="<?php echo base_url()?>assets/template/mpr/tk.xlsx" class="btn btn-primary">Download Template Rekap TK</a>&nbsp;
+                               <a href="<?php echo base_url()?>assets/template/mpr/sd.xlsx" class="btn btn-primary">Download Template Rekap SD</a>&nbsp;
+                               <a href="<?php echo base_url()?>assets/template/mpr/smp.xlsx" class="btn btn-primary">Download Template Rekap SMP</a>&nbsp;
 			   </div>
                            
 			   <div class="col-sm-12">
