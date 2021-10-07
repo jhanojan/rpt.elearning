@@ -21,11 +21,11 @@ if(empty($nilai)){
 </table>
 <table width="100%" border="1" cellspacing='0'>
     <tr>
-        <td><b>Mata Pelajaran</b></td>
-        <td><b>Presensi</b></td>
-        <td><b>Bahan Ajar</b></td>
-        <td><b>Nilai Pengetahuan</b></td>
-        <td><b>Nilai Keterampilan</b></td>
+        <td class="ctr"><b>Mata Pelajaran</b></td>
+        <td class="ctr"><b>Presensi</b></td>
+        <td class="ctr"><b>Bahan Ajar</b></td>
+        <td class="ctr"><b>Nilai Pengetahuan</b></td>
+        <td class="ctr"><b>Nilai Keterampilan</b></td>
     </tr>
     <tr>
         <td class="ctr"><b>PAI</b></td>
