@@ -48,14 +48,14 @@
     </tr>
     <tr>
         <td width="50%" align="left">
-            <img src="<?php echo base_url()?>assets/img/kepsek-sign.png" style="width:200px">
+            <img src="<?php echo base_url()?>assets/img/<?php echo $sign?>" style="width:200px">
         </td>
         <td width="50%" align="right">&nbsp;
         </td>
     </tr>
     <tr>
         <td width="50%" align="left">
-            <u>Mas’ud, M.Pd.I.</u>
+            <u><?php echo $kepsek?></u>
         </td>
         <td width="50%" align="right">
             
