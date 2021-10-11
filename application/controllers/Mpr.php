@@ -96,7 +96,7 @@ class MPR extends CI_Controller {
             $data['header_img']='mpr-header-tk.png';            
             $data['footer_img']='footer-tk.png';
             $data['kepsek']='Candra Faiza Hanum, S.Pd.';
-            $data['sign']='blank-sign.png';
+            $data['sign']='kepsek-sign-tk.png';
 
          }
          elseif($kelas=='SDIT' || strpos($kelas,'1')!==false || strpos($kelas,'2')!==false || strpos($kelas,'3')!==false || strpos($kelas,'4')!==false || strpos($kelas,'5')!==false || strpos($kelas,'6')!==false){
