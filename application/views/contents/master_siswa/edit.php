@@ -40,7 +40,7 @@ if(isset($list)){
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">No. Sisda</label>
 				   </div><div class="col-sm-9">
-				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : "") ?>" class="col-sm-6 date-picker">
+				   <input type="text" name="<?php echo $nm_f?>"  id="<?php echo $nm_f?>" value="<?php echo (isset($val[$nm_f]) ? $val[$nm_f] : "") ?>" class="col-sm-6">
 			   </div>
 		   </div>
 		   </div>
