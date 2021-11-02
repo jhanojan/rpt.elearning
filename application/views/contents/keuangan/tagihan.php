@@ -74,11 +74,11 @@
     </tr>
     <tr>
         <th width="75%" align="center" colspan="2">Keterangan PMB</th>
-        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?>%</th>
+        <th width="25%" align="right"><?php echo $datapay['ket_pmb'] ?>%</th>
     </tr>
     <tr>
         <th width="75%" align="center" colspan="2">Keterangan Lain-Lain</th>
-        <th width="25%" align="right"><?php echo $datapay['diskon_persen'] ?>%</th>
+        <th width="25%" align="right"><?php echo $datapay['ket_lainlain'] ?>%</th>
     </tr>
     
     <tr>
