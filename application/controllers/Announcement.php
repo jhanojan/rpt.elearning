@@ -213,7 +213,39 @@ class Announcement extends CI_Controller {
 			unset($data[$r['Field']."_temp"]);
 		}
                 
-		
+		##image nih
+		if (!empty($_FILES['filez']['name'])) {
+			$time=date('YmdHis');
+			$config['upload_path'] = './files/pengumuman/';
+			$config['allowed_types'] = '*';
+			$config['max_size']	= '1000000';
+			//$config['max_width']  = '1900';
+			//$config['max_height']  = '1200';
+			$config['file_name']=date("mdYiHs");
+			
+			$this->load->library('upload', $config);
+			
+			if($id != NULL && $id != ''){
+					$foto= GetValue('filez','sv_announcement',array('id'=>'where/'.$id));
+                                        
+					if($foto!=0){
+						unlink('./files/pengumuman/'.$foto);
+					}
+			}
+			
+			if (!$this->upload->do_upload('filez')) {
+				$upload_error = $this->upload->display_errors();
+				//echo json_encode($upload_error);
+			} else {
+				
+				$file_info = $this->upload->data();
+				$file =  $file_info['full_path'];
+				$data['filez']=$config['file_name'].substr($file,-4);
+				//echo json_encode($file_info);
+       		}
+		}
+		##image nih
+                
 		if($id != NULL && $id != '')
 		{
 			/* if(!$this->input->post('password')){unset($data['password']);}

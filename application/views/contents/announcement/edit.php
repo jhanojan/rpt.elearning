@@ -50,7 +50,7 @@ $cekdup=($type=='New' ? ',ajax[ajaxcekcode]' : '');
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">Isi Pengumuman</label>
 				   </div><div class="col-sm-9">
-				   <?php echo form_textarea($nm_f,(isset($val[$nm_f]) ? $val[$nm_f] : ''),'') ?>
+				   <?php echo form_textarea($nm_f,(isset($val[$nm_f]) ? $val[$nm_f] : ''),'id="contents"') ?>
 			   </div>
 		   </div>
                    </div>
@@ -60,14 +60,32 @@ $cekdup=($type=='New' ? ',ajax[ajaxcekcode]' : '');
 			   <div class="col-sm-3">
 				   <label for="<?php echo $nm_f?>">File Lampiran</label>
 				   </div><div class="col-sm-9">
-                                       <div class="form-file">
-                                        <input type="file" name="filez"  onchange="loadFile(event)">
-                                        <button class="btn white">Select file ...</button>
-                                        </div>
+                                        <input type="file" name="filez" >
+                                        <?php 
+                                            if(!empty($val['id'])){
+                                                echo "*) Kosongkan Jika Tidak Ingin Diubah";
+                                            }
+                                        ?>
 			   </div>
             
 		   </div>
                    </div>
+           
+            <?php 
+              if(!empty($val['id']) && !empty($val['filez'])){  
+             ?>
+		   <div class="row">
+		   <div class="form-group">
+			  
+			   <div class="col-sm-3">
+				   <label for="<?php echo $nm_f?>">Preview Lampiran</label>
+                           </div><div class="col-sm-9">
+                                       <a href="<?php echo base_url()."files/pengumuman/".$val['filez']?>" target="_blank"><i class="fa fa-file"></i></a>
+			   </div>
+            
+		   </div>
+                   </div>
+           <?php }?>
            
 		   <div class="row">
 		   <!--div class="form-group">
@@ -162,32 +180,58 @@ $cekdup=($type=='New' ? ',ajax[ajaxcekcode]' : '');
             });
     });
 </script>
-<script language="JavaScript" src="<?php echo base_url();?>assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script language="JavaScript" src="<?php echo base_url(); ?>assets/ckeditor_z/ckeditor.js" type="text/javascript"></script>
 
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>tinymce.init({selector:'textarea',
-    menubar:false,
-    statusbar: false,init_instance_callback : function(editor) {
-    var freeTiny = document.querySelector('.tox .tox-notification--in');
-   freeTiny.style.display = 'none';
-  }});</script>
 <script>
-    
-    var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
+    CKEDITOR.replace('contents', {
+    skin: 'kama',
+    filebrowserBrowseUrl: '<?php echo base_url() ?>assets/ckfinder_z/ckfinder.html',
+    filebrowserImageBrowseUrl: '<?php echo base_url() ?>assets/ckfinder_z/ckfinder.html?Type=Images',
+    filebrowserFlashBrowseUrl: '<?php echo base_url() ?>assets/ckfinder_z/ckfinder.html?Type=Flash',
+    filebrowserUploadUrl: '<?php echo base_url() ?>assets/ckfinder_z/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserImageUploadUrl: '<?php echo base_url() ?>assets/ckfinder_z/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    filebrowserFlashUploadUrl: '<?php echo base_url() ?>assets/ckfinder_z/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+    toolbar: [
+      ['Source', '-', 'Preview', 'Templates', 'Cut', 'Copy', 'Paste'],
+      ['Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'NumberedList', 'BulletedList', 'Subscript', 'Superscript', '-'],
+      '/',
+      ['Link', 'Unlink', '-', 'Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'],
+      ['TextColor', 'BGColor', '-', 'Font', 'FontSize', 'PasteFromWord']
+    ]
+  });
+  $('#savepreview').click(function() {
+
+    /* Before submit */
+    for (instance in CKEDITOR.instances) {
+      CKEDITOR.instances[instance].updateElement();
     }
-  };
+
+    var form = $('#formdata')[0];
+    var formData = new FormData(form);
+    $.ajax({
+      type: "POST",
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+      url: "<?php echo base_url() ?>backoffice/article/submit_preview",
+      success: function(data) {
+        var win = window.open('<?php echo base_url() ?>article/view_tmp/' + data, '_blank');
+        $('#id_tmp').val(data);
+        if (win) {
+          //Browser has allowed it to be opened
+          win.focus();
+        } else {
+          //Browser has blocked it
+          alert('Please allow popups for this website');
+        }
+      }
+    });
+    return false;
+  });
+    
   
-CKEDITOR.replace( 'contents',
-{
-toolbar :
-[
-['Source','-','Copy','Paste','Bold','Italic','Underline','Strike','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','Subscript','Superscript','PasteFromWord']
-]
-});
+
 $(document).ready(function(e){
     gantitarget();
 });
