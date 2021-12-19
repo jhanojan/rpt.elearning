@@ -31,6 +31,13 @@ class Page extends CI_Controller {
 		$data['content'] = 'contents/page/upload_laporan';
 		$this->load->view('layout/main',$data);
 	}
+	public function announcement()
+	{
+                $id=$this->input->post('i');
+		$q=GetAll('sv_announcement',array('id'=>'where/'.$id))->row_array();
+                echo json_encode($q);
+		//$this->load->view('layout/main',$data);
+	}
 	public function no_child()
 	{
                 $child=$this->db->query("SELECT * FROM sv_parent_child WHERE parent='".webmastermarketing()."'");

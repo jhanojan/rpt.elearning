@@ -66,11 +66,11 @@ class Login extends CI_Controller {
                         if($child->num_rows()==0){
                             redirect('page/no_child');
                         }
-                        elseif($child->num_rows()==1){
-                            $cdata=$child->row();
-                            $this->session->set_userdata('chosen_kid',$cdata->child);
-                            redirect('dashboard_new');
-                        }
+//                        elseif($child->num_rows()==1){
+//                            $cdata=$child->row();
+//                            $this->session->set_userdata('chosen_kid',$cdata->child);
+//                            redirect('dashboard_new');
+//                        }
                         else{
                             redirect('page/choose_child');
                         }

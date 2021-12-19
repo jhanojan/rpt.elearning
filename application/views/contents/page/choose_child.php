@@ -22,8 +22,75 @@ if(!empty(webmastermarketing())){
         color:white;
         font-family:"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    .bodymdl img{
+        max-width:100%!important;
+        height:auto!important;
+    }
 </style>
+<div class="modal fade" id="modalannounce" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalannounceTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-md-12">
+                  <div style="max-width:100%!important" class="bodymdl" id="modalannounceBody"></div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+              <div class="col-md-12" id="modalannounceAttachment">
+                  
+              </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+        <div class="box-header well" data-original-title="">
+            <h2><i class="fa fa-bullhorn"></i> Pengumuman</h2>
+            <div class="box-content" style="margin-top:15px;">
+                <?php
+                $pengumuman=$this->db->query("SELECT id,title,created_on FROM sv_announcement WHERE status='Aktif' ORDER BY id DESC");
+                if($pengumuman->num_rows()==0){
+                ?>
+                <div class="row">
+                    <div class="col-md-12"><span style="color:gray;">Tidak Ada Pengumuman Saat Ini</span></div>
+                </div>
+                <?php }else{
+                    ?>
+                <ul>
+                        <?php 
+                    foreach($pengumuman->result() as $rs){
+                    ?>
+                    <li style="margin-top:10px;">
+                        <a href="#" onclick="openannounce(<?php echo $rs->id?>)"><h3><?php echo $rs->title?></h3></a>
+                        
+                        <span style="font-size:8pt;color:gray;">Dipublish : <?php echo tglindofull($rs->created_on)?></span>
+                
+                    </li>
+                <?php
+                }?>
+                </ul>
+                    <?php 
+                
+                }
+                ?>
+            </div>
+        
+        </div>
+    </div>
+    </div>
+</div>
 <div class="row">
     <div class="box col-md-12">
     <div class="box-inner">
@@ -75,5 +142,18 @@ if(!empty(webmastermarketing())){
     function pilihanak(ids){
         window.location.assign('<?php echo base_url()?>login/assign_child/'+ids);
     }
-    
+    function openannounce(id){
+            $('#modalannounceTitle').empty();
+            $('#modalannounceBody').empty();
+            $('#modalannounceAttachment').empty();
+        $('#modalannounce').modal('show');
+        $.post("<?php echo base_url()?>page/announcement",{i:id},function(e){
+            data=JSON.parse(e);
+            $('#modalannounceTitle').html(data.title);
+            $('#modalannounceBody').html(data.content);
+            if(data.filez){
+                $('#modalannounceAttachment').append("<a style='color:blue;float:left;' href='<?php echo base_url()?>files/pengumuman/"+data.filez+"' download><i class='fa fa-download'></i> Download Lampiran</a>");
+            }
+        });
+    }
 </script>
