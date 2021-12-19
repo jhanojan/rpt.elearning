@@ -43,6 +43,7 @@ class Dashboard_new extends CI_Controller {
 		$data['content'] = 'contents/'.$this->utama.'/view';
                 $period=date('Y-m');
                 $data['tagihan']=$this->db->query("SELECT * FROM sv_tagihan_siswa WHERE (sisda='".$sisda."' or va_bsm='".$data['detailanak']->idnumber."' or va_mandiri='".$data['detailanak']->idnumber."') ORDER BY id DESC limit 1")->row_array();
+                $data['laporan']=$this->db->query("SELECT * FROM sv_laporan where no_sisda='" . $sisda . "' ORDER BY id DESC LIMIT 3");
 		//End Global
 		
 		//Attendance

@@ -35,6 +35,7 @@ class Page extends CI_Controller {
 	{
                 $id=$this->input->post('i');
 		$q=GetAll('sv_announcement',array('id'=>'where/'.$id))->row_array();
+		$q['dibuat']=tglindo($q['created_on']);
                 echo json_encode($q);
 		//$this->load->view('layout/main',$data);
 	}

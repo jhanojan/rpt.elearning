@@ -13,7 +13,7 @@ class Laporan extends CI_Controller {
 		var $title ='Laporan';
 	function __construct()
 	{
-		parent::__construct();permissionz();
+		parent::__construct();
 		$this->load->library('flexigrid');
                 $this->load->helper('flexigrid');
                 error_reporting(0);
@@ -26,7 +26,10 @@ class Laporan extends CI_Controller {
 	
 	function main()
 	{
-		
+
+		if (webmastergrup() == 3) {
+			redirect('laporan/orangtua');
+		}
 		//permission();
 		//$data = GetHeaderFooter();
 		$data['content'] = 'contents/'.$this->utama.'/view';
@@ -214,9 +217,19 @@ class Laporan extends CI_Controller {
 			if(!$data[$r['Field']] && !$data[$r['Field']."_temp"]) unset($data[$r['Field']]);
 			unset($data[$r['Field']."_temp"]);
 		}
-                //print_mz($_FILES);
-                
+		//print_mz($_FILES);
+
 		##image nih
+
+
+		$time = date('YmdHis');
+		$config['upload_path'] = './files/laporan/';
+		$config['allowed_types'] = '*';
+		$config['max_size']	= '1000000';
+		//$config['max_width']  = '1900';
+		//$config['max_height']  = '1200';
+
+		$this->load->library('upload', $config);
                 $a=0;
                 foreach($_FILES['filez']['name'] as $fls){
                     $sisda=(int)$fls;
@@ -226,15 +239,6 @@ class Laporan extends CI_Controller {
                     $_FILES['file']['tmp_name'] = $_FILES['filez']['tmp_name'][$a];
                     $_FILES['file']['error'] = $_FILES['filez']['error'][$a];
                     $_FILES['file']['size'] = $_FILES['filez']['size'][$a];
-			$time=date('YmdHis');
-			$config['upload_path'] = './files/laporan/';
-			$config['allowed_types'] = '*';
-			$config['max_size']	= '1000000';
-			//$config['max_width']  = '1900';
-			//$config['max_height']  = '1200';
-			$config['file_name']=$data['title'].'-'.$sisda.'_'.date("mdYiHs");
-			
-			$this->load->library('upload', $config);
 			
 			if($id != NULL && $id != ''){
 					$foto= GetValue('filez',$this->utama,array('id'=>'where/'.$id));
@@ -243,7 +247,10 @@ class Laporan extends CI_Controller {
 						unlink('./files/laporan/'.$foto);
 					}
 			}
-			
+
+				$config['file_name'] = $data['title'] . '-' . $sisda . '_' . date("mdYiHs");
+
+				$this->upload->initialize($config);
 			if (!$this->upload->do_upload("file")) {
 				$upload_error = $this->upload->display_errors();
 				echo json_encode($upload_error);
@@ -355,6 +362,36 @@ $opt_item[$i['id']]=$i['title'];
             echo "<hr>";
             echo "TOTAL : ".uang($total);
         }
+	function orangtua()
+	{
+		error_reporting(E_ALL);
+		//echo get('col');die();
+		//Set Global
+		//$data = GetHeaderFooter();
+		$data['content'] = 'contents/' . $this->utama . '/view_orangtua';
+
+		$col = (!get('col') ? '' : get('col'));
+		$val = (!get('val') ? '' : get('val'));
+		$periode = (!get('periode') ? '' : get('periode'));
+		$no_sisda=GetValue('no_sisda','master_siswa',array('id'=>'where/'.webmasterkid()));
+		if ($col == '') {
+			$data['contents'] = array();
+		} else {
+			$qp = "";
+			if ($col != '' && $val != '') $qp .= "AND $col='$val'";
+			if ($periode != '') $qp .= "AND periode='$periode'";
+		}
+		
+
+		$data['contents'] = $this->db->query("SELECT * FROM sv_laporan WHERE no_sisda='".$no_sisda."' ORDER BY id DESC")->result_array();
+		//$data['js_grid']=$this->get_column($siswa,$ta,$kelas,$tipe);
+		//$data['list']=GetAll($this->utama);
+		//End Global
+
+		//Attendance
+
+		$this->load->view('layout/main', $data);
+	}
 	
 }
 ?>
