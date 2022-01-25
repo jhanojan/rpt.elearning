@@ -65,10 +65,12 @@ class Laporan extends CI_Controller {
             $buttons[] = array('select','check','btn');
             $buttons[] = array('deselect','uncheck','btn');
             $buttons[] = array('separator');
-            if(izin('c'))$buttons[] = array('tambah','add','btn');
+            //if(izin('c'))
+            $buttons[] = array('tambah','add','btn');
             $buttons[] = array('separator');
             //if(izin('u'))$buttons[] = array('edit','edit','btn');
-            if(izin('d'))$buttons[] = array('delete','delete','btn');
+            //if(izin('d'))
+            $buttons[] = array('delete','delete','btn');
             $buttons[] = array('separator');
 		
             return $grid_js = build_grid_js('flex1',site_url($this->utama."/get_record"),$colModel,'id','desc',$gridParams,$buttons,600);
