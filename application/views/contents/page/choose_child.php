@@ -59,46 +59,6 @@ if (!empty(webmastermarketing())) {
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2><i class="fa fa-bullhorn"></i> Pengumuman</h2>
-                <div class="box-content" style="margin-top:15px;">
-                    <?php
-                    $pengumuman = $this->db->query("SELECT id,title,created_on FROM sv_announcement WHERE status='Aktif' ORDER BY id DESC");
-                    if ($pengumuman->num_rows() == 0) {
-                    ?>
-                        <div class="row">
-                            <div class="col-md-12"><span style="color:gray;">Tidak Ada Pengumuman Saat Ini</span></div>
-                        </div>
-                    <?php } else {
-                    ?>
-                        <ul>
-                            <?php
-                            foreach ($pengumuman->result() as $rs) {
-                            ?>
-                                <li style="margin-top:10px;">
-                                    <a href="#" onclick="openannounce(<?php echo $rs->id ?>)">
-                                        <h3><?php echo $rs->title ?></h3>
-                                    </a>
-
-                                    <span style="font-size:8pt;color:gray;">Dipublish : <?php echo tglindofull($rs->created_on) ?></span>
-
-                                </li>
-                            <?php
-                            } ?>
-                        </ul>
-                    <?php
-
-                    }
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="box col-md-12">
-        <div class="box-inner">
-            <div class="box-header well" data-original-title="">
                 <h2>Silahkan Pilih Laporan Anak Anda</h2>
 
 
@@ -138,6 +98,47 @@ if (!empty(webmastermarketing())) {
                 </div>
             </div>
 
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="fa fa-bullhorn"></i> Pengumuman</h2>
+                <div class="box-content" style="margin-top:15px;">
+                    <?php
+                    $pengumuman = $this->db->query("SELECT id,title,created_on FROM sv_announcement WHERE status='Aktif' ORDER BY id DESC");
+                    if ($pengumuman->num_rows() == 0) {
+                    ?>
+                        <div class="row">
+                            <div class="col-md-12"><span style="color:gray;">Tidak Ada Pengumuman Saat Ini</span></div>
+                        </div>
+                    <?php } else {
+                    ?>
+                        <ul>
+                            <?php
+                            foreach ($pengumuman->result() as $rs) {
+                            ?>
+                                <li style="margin-top:10px;">
+                                    <a href="#" onclick="openannounce(<?php echo $rs->id ?>)">
+                                        <h3><?php echo $rs->title ?></h3>
+                                    </a>
+
+                                    <span style="font-size:8pt;color:gray;">Dipublish : <?php echo tglindofull($rs->created_on) ?></span>
+
+                                </li>
+                            <?php
+                            } ?>
+                        </ul>
+                    <?php
+
+                    }
+                    ?>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
